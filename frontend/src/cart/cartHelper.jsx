@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+
 
 export const addItem = (item, color, next) => {
     let cart = [];

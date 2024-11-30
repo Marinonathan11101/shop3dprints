@@ -1,6 +1,5 @@
-import logo from './images/logo.jpg';
+
 import Home from './routes/home/home.component'
-import Nav from "./routes/nav/nav.component"
 import SignIn from "./routes/sign-in/signIn.component"
 import {Routes, Route} from "react-router-dom";
 import AddProducts from "./components/addProduct"

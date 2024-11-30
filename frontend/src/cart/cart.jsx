@@ -3,7 +3,7 @@ import Nav from "../routes/nav/nav.component";
 import { getCart, updateItem, DeleteCartItem } from "./cartHelper"; // Import the helper function
 import Footer from "../components/footer";
 import { isAuthenticated } from "../utils/auth";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { ClearCart } from "./cartHelper";
 
