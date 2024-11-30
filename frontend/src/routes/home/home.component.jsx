@@ -34,7 +34,7 @@ function Home({ isAdmin }) {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/products');
+                const response = await fetch('https://shop3dprints.onrender.com/products');
                 if (response.ok) {
                     const data = await response.json();
                     setProducts(data);  // Store the fetched products in the state
@@ -62,7 +62,7 @@ function Home({ isAdmin }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/products/${id}/delete`, {
+            const response = await fetch(`https://shop3dprints.onrender.com/products/${id}/delete`, {
                 method: 'DELETE', // Specify the DELETE method
             });
 
@@ -85,7 +85,7 @@ function Home({ isAdmin }) {
 
     const handleLikes = async (id) => {
         try {
-            const response = await fetch(`http://localhost:5000/products/${id}`, {
+            const response = await fetch(`https://shop3dprints.onrender.com/products/${id}`, {
                 method: 'GET',
             });
 

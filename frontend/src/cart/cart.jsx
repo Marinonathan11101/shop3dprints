@@ -50,7 +50,7 @@ const Cart = () => {
     setIsProcessing(true); // Set processing to true when checkout starts
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${usersName}`, {
+      const response = await fetch(`https://shop3dprints.onrender.com/api/users/${usersName}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const Cart = () => {
         console.log("User Data:", userData.email);
 
         // Send the user data and items to the backend to trigger the email
-        const emailResponse = await fetch('http://localhost:5000/api/send-email', {
+        const emailResponse = await fetch('https://shop3dprints.onrender.com/api/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -38,7 +38,7 @@ const SignInForm = () => {
         const newUser = { displayName, email, password, shippingAddress };
 
         try {
-            const response = await fetch('http://localhost:5000/api/signup', { // sends the new user data to the server
+            const response = await fetch('https://shop3dprints.onrender.com/api/signup', { // sends the new user data to the server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const SignInForm = () => {
         const userCredentials = { email, password };
 
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('https://shop3dprints.onrender.com/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

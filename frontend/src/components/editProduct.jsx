@@ -38,7 +38,7 @@ function EditProduct() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/products/${id}`, {
+                const response = await fetch(`https://shop3dprints.onrender.com/products/${id}`, {
                     method: 'GET', 
                 });
           
@@ -68,7 +68,7 @@ function EditProduct() {
 
     const handleSaveEdit = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/products/${id}/update`, {
+            const response = await fetch(`https://shop3dprints.onrender.com/products/${id}/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

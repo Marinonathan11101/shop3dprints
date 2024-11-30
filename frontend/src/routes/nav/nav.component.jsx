@@ -69,7 +69,7 @@ function Nav({ scrollToProducts }) {
         // If the search bar is empty, display all products
         if (name.trim() === "") {
             try {
-                const response = await fetch('http://localhost:5000/products'); // Fetch all products
+                const response = await fetch('https://shop3dprints.onrender.com/products'); // Fetch all products
                 if (response.ok) {
                     const data = await response.json();
                     navigate("/", { state: { filteredProductsByName: [], filteredProducts: data } }); // Pass all products to state
@@ -84,7 +84,7 @@ function Nav({ scrollToProducts }) {
 
         // Otherwise, fetch products by name
         try {
-            const response = await fetch(`http://localhost:5000/products/names?name=${name.toUpperCase()}`);
+            const response = await fetch(`https://shop3dprints.onrender.com/products/names?name=${name.toUpperCase()}`);
             if (response.ok) {
                 const data = await response.json();
                 navigate("/", { state: { filteredProductsByName: data } });
@@ -117,7 +117,7 @@ const FetchProductsByCategory = async (media, category) => {
     try {
         // Construct the URL with the query parameters
         console.log(media, category);
-        const response = await fetch(`http://localhost:5000/products/filter?media=${media}&category=${category}`)
+        const response = await fetch(`https://shop3dprints.onrender.com/products/filter?media=${media}&category=${category}`)
 
 
         if (response.ok) {

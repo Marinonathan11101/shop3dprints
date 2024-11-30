@@ -25,7 +25,7 @@ const AddProductForm = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/products/add', {
+            const response = await fetch('https://shop3dprints.onrender.com/products/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
