@@ -1,0 +1,921 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik';
+}
+
+/* Nav styling */
+
+.LogoAndImage img {
+  width: 100px;
+  height: 100px;
+}
+
+.logOutButton{
+  padding: 0.5em;
+  background-color: white;
+
+}
+
+.logOutButton:hover{
+  transform: scale(1.1);
+}
+/* Wrapper ensures proper positioning */
+.sideMenu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Hidden by default */
+  width: 300px;
+  height: 100%;
+  background-color: #f4f4f4;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease; /* Smooth slide effect */
+}
+
+.sideMenu.open {
+  left: 0; /* Slide in when open */
+}
+
+.sideMenuContent {
+  padding: 20px;
+}
+
+.Categories {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Categories img {
+  width: 20px;
+  height: 20px;
+}
+
+.headerDiv {
+  display: flex;
+  gap: 6em;
+  width: 100%;
+  height: 10em;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Sign-In img {
+  width: 30px;
+  height: 30px;
+}
+
+header {
+  background-color: #73caea;
+  border-bottom: 2px solid #000;
+
+}
+
+.Cart img {
+  width: 30px;
+  height: 30px;
+}
+
+.Cart {
+  display: flex;
+  gap: 1em;
+}
+
+.CartLink{
+  text-decoration: none;
+  color: black;
+}
+
+.LikeLink{
+  text-decoration: none;
+  color: black;
+}
+
+.Categories {
+  display: flex;
+  gap: 1em;
+  position: relative;
+  right: 20em;
+}
+
+.SearchBar input {
+  padding: 8px;
+  width: 100%;
+  margin-top: 10px;
+  /* Space between title and search bar */
+  border: 5px solid #000;
+  /* Set the border size and color */
+  border-radius: 10%;
+  /* Makes the element circular */
+}
+
+.SearchBar {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.Categories img {
+  height: 30px;
+  width: 30px;
+}
+
+.SearchBar img {
+  width: 30px;
+  height: 30px;
+}
+
+.Sign-In {
+  position: relative;
+  left: 30em;
+  display: flex;
+  gap: 1em;
+}
+
+
+.Likes img {
+  width: 30px;
+  height: 30px;
+}
+
+.Likes {
+  display: flex;
+  gap: 1em;
+}
+
+.search-icon {
+  position: absolute;
+  bottom: 5px;
+  left: 13em;
+  pointer-events: none;
+}
+
+/* Categories Menu */
+
+.sideMenu {
+  position: fixed;
+  top: 0;
+  left: -500px;
+  width: 500px;
+  height: 100%;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.product-item {
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.1);
+}
+
+/* Side menu content */
+.sideMenuContent {
+  color: white;
+  padding: 8px 16px;
+}
+
+.sideMenu a {
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+}
+
+.sideMenu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sideMenuContent div:nth-child(2) {
+  margin-top: 3em;
+}
+
+/* Add a "close" button */
+.sideMenu .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  color: white;
+  padding: 10px;
+}
+
+.Seperator{
+  padding: 5px;
+  background-color: black;
+  width: 50%;
+}
+.SeperatorContainer{
+  display: flex;
+  justify-content: center;
+}
+
+/* Our Service */
+
+.OurServiceImage{
+  
+  width: 50%;
+  background-image: url("./images/Elegoo.png");
+  background-size: cover;
+  background-position: center;
+  padding: 15em;
+}
+
+.OurService{
+  display: flex;
+
+}
+
+.OurServiceText{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 15em;
+  color: white;
+  
+}
+
+.OurServiceText h2{
+  font-size: xx-large;
+  padding: 2em;
+}
+.OurServiceText  {
+  text-align: center;
+}
+
+.OurServiceText button{
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #73caea;
+}
+
+.Info{
+  padding: 5em;
+}
+
+.InfoContainer{
+  text-align: center;
+  display: flex;
+  justify-content: space-around
+}
+
+.InfoContainer img{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  
+}
+
+/* All products styling */
+
+.AllProducts>h2 {
+  text-align: center;
+}
+
+.AllProducts h2 {
+  margin-bottom: 2em;
+}
+
+.AllProducts {
+  padding: 3em;
+}
+
+.productsContainer img {
+  width: 300px;
+  height: 300px;
+}
+
+.cart-Likes-SignIn {
+  display: flex;
+  gap: 1em;
+}
+
+.productsContainer {
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+/* Footer */
+
+.footerContainer img {
+  height: 50px;
+  width: 50px;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #73caea;
+  text-align: center;
+  height: 20em;
+}
+
+.footerContainer img {
+  margin-top: 3em;
+}
+
+.footerContainer div>p {
+  margin-bottom: 2em;
+}
+
+@media (max-width: 768px) {
+  .headerDiv {
+    gap: 1em;
+    font-size: 10px;
+  }
+
+  .LogoAndImage img {
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .Categories {
+    gap: 0.5em;
+    right: 0;
+  }
+
+  .cart-Likes-SignIn {
+    flex-wrap: wrap;
+  }
+
+  .Cart img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Likes img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Sign-In {
+    left: 0;
+  }
+
+  .title h1 {
+    font-size: 20px;
+    white-space: nowrap;
+
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .SearchBar input {
+    width: 80%;
+    border-radius: 8px;
+  }
+
+  .sideMenu {
+    left: -200px;
+    width: 200px;
+  }
+
+  .Sign-In img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Categories img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Sign-In {
+    display: flex;
+    gap: 1em;
+  }
+
+  @media (max-width: 360px) {
+    .headerDiv {
+      gap: 1em;
+      font-size: 10px;
+    }
+
+    .LogoAndImage img {
+
+      width: 80px;
+      height: 80px;
+    }
+
+    .Categories {
+      gap: 0.5em;
+      right: 0;
+    }
+
+    .cart-Likes-SignIn {
+      flex-wrap: wrap;
+    }
+
+    .Cart img {
+      width: 15px;
+      height: 15px;
+    }
+
+    .Likes img {
+      width: 15px;
+      height: 15px;
+    }
+
+    .Sign-In {
+      left: 0;
+    }
+
+    .title h1 {
+      font-size: 15px;
+      white-space: nowrap;
+
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      right: 10px;
+    }
+
+    header {
+      width: 100%;
+    }
+
+    .SearchBar input {
+      width: 80%;
+      border-radius: 8px;
+    }
+
+    .sideMenu {
+      left: -200px;
+      width: 200px;
+    }
+
+    .Sign-In img {
+      height: 15px;
+      width: 15px;
+    }
+
+    .Categories img {
+      height: 15px;
+      width: 15px;
+    }
+
+    .Sign-In {
+      display: flex;
+      gap: 1em;
+    }
+
+    .search-icon {
+      display: none;
+    }
+
+  }
+
+
+
+}
+
+/* Sign up page */
+
+.signInContainer {
+  display: flex;
+  gap: 10em;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  font-size: 1.5em;
+
+}
+
+.AlreadyHaveAccount div p {
+  margin: 10px;
+}
+
+.signInContainer p {
+  font-size: 1em;
+}
+
+.signInContainer h2 {
+  font-size: 2em;
+}
+
+.EmailForm input {
+  padding: 20px;
+  width: 100%;
+}
+
+.PasswordForm input {
+  padding: 20px;
+  width: 100%;
+}
+
+
+.PasswordForm {
+  margin-top: 2em;
+}
+
+.mainh1ContainerSignIn h1 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#displayName,
+#emailRegister,
+#passwordRegister,
+#confirmPassword,
+#shippingAddress {
+  padding: 20px;
+  width: 100%;
+}
+
+.buttonContainerAHA, .buttonContainerDHA {
+  text-align: center;
+
+}
+
+.buttonContainerAHA button:nth-child(2) {
+  margin-left: 2em;
+}
+
+.buttonContainerAHA button:nth-child(1) {
+  background-color: #61dafb;
+}
+
+.buttonContainerAHA button, .buttonContainerDHA button {
+  padding: 1em;
+  background-color: #61dafb;
+  border: 1px solid black;
+  margin-top: 2em;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.DHAContainer input{
+  margin-bottom: 2em;
+}
+
+.DHAContainer div p {
+  margin: 1em;
+}
+
+.DHAContainer p{
+  margin: 1em;
+}
+
+.AlreadyHaveAccount p{
+  margin: 1em;
+}
+
+/* Add product form */
+
+.addProductForm
+{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 75vh;
+  
+}
+
+.bodyContainer h2{
+  text-align: center;
+}
+
+/* ProductsPage */
+
+.ProductsPageImageContainer{
+  padding: 4em;
+
+  /* float: left; */
+}
+
+.ProductsPageImageContainer img{
+  border: solid 5px black;
+  border-radius: 25%;
+}
+
+.ProductsPageImageContainer img{
+  width: 600px;
+  height: 600px;
+}
+
+.ProductInfoContainer h2{
+  padding: 2em;
+}
+
+.ProductInfoContainer{
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1em;
+}
+
+.ProductInfoContainer h3{
+  padding: 1em;
+}
+
+/* Footer should stay at the bottom */
+/* footer {
+    margin-top: auto; /* Push footer to the bottom of the page */
+ 
+.MainContent{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+footer{
+  margin-top: auto;
+}
+
+.color-container {
+  display: flex;
+  gap: 10px; /* Space between circles */
+  margin-top: 10px;
+  justify-content: center;
+  padding: 1em;
+}
+
+.color-circle {
+  width: 30px; /* Circle size */
+  height: 30px;
+  border-radius: 50%; /* Makes it a circle */
+  border: 1px solid #ccc; /* Optional border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  display: inline-block;
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.colorSection p{
+  margin-top: 2em;
+}
+
+.AddToCartButtonContainer button{
+  margin-top: 1em;
+  background-color: #61dafb;
+  padding: 1em;
+  width: 65%;
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.AddToCartButtonContainer button:hover{
+   transform: scale(1.1);
+  
+}
+
+.LikeButton{
+  padding: 1em;
+  width: 25%;
+  background-color: #61dafb;
+  color: black;
+  border: none;
+  border-radius: 10%;
+}
+
+.Cart {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0.5rem 0.5rem;
+  min-width: 20px;
+  text-align: center;
+  transform: translate(50%, -50%);
+}
+
+/* Likes Page */
+
+.wishListContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.likesDiv {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the page takes full height */
+}
+
+/* Ensure the content section takes the available space */
+.wishListContainer {
+  flex: 1;
+}
+
+.likesContainer img{
+  height: 100px;
+  width: 100px;
+}
+
+.likesButtonRemove{
+  background-color: black;
+  padding: 0.5em;
+  width: 25%;
+  color: white;
+  border-radius: 10%;
+}
+
+.likesContainer{
+  background-color: #73caea;
+  width: 75%;
+  border: solid 3px black;
+}
+
+.likesContainer ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+
+}
+
+.likesContainer li {
+  display: flex;
+  align-items: center; /* Aligns image and text vertically */
+  gap: 1em; /* Adds spacing between the image and the text */
+  
+}
+
+.likesContainer h2{
+  text-align: center;
+  padding: 2em;
+  font-size: xx-large;
+}
+
+/* Cart Page */
+
+.CartPage h2{
+  text-align: center;
+  padding: 2em;
+}
+
+
+.GridContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 2em;
+  height: 400px;
+}
+
+.Summary{
+  background-color: #73caea;
+  grid-column: 3;
+  grid-row: 1 / 3;
+  width: 85%;
+  height: 85%;
+  text-align: center;
+  border: black 3px solid;
+}
+
+.itemsGrid{
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #73caea;
+  padding: 2em;
+  border: black 3px solid;
+}
+
+.itemsGrid ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itemsGrid li {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  gap: 10px; /* Space between the image and text */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Optional: Add a background color */
+}
+
+.itemsGrid img {
+  width: 50px; /* Set a fixed width for the image */
+  height: 50px; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image fits nicely within the dimensions */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.buttonContainer button{
+ position:relative;
+ top: 8em;
+ background-color: black;
+ padding: 1em;
+ width: 30%;
+ color: white;
+}
+
+.PageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+.SignInButtonContainer button{
+  padding: 1em;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+What is Req and Res? 
+
+- Request (req)
+The request object (req) contains all the information about the incoming request, such as:
+
+	URL the user is trying to access (like /signup or /login)
+	HTTP Method (GET, POST, PUT, DELETE)
+	Body (data sent from the frontend, such as form data or JSON data)
+	Query Parameters (e.g., ?name=John)
+	Headers (metadata about the request, such as content type)
+
+
+- Response (res)
+The response object (res) is what you use to send data or a status back to the client. It can:
+
+	Send data (like JSON)
+	Send an HTTP status code (e.g., 200 OK, 400 Bad Request)
+	Send an HTML page or redirect the user to another URL
+
+
+HTTPS Requests:
+
+GET: Retrieves data from the server 
+POST: Sends data to the server, typically used to create resources. 
+PUT: Updates an existing resource on the server.
+DELETE: Deletes an existing resource on the server.
