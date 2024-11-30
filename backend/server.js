@@ -11,7 +11,7 @@ const emailRoute = require("./routes/email");
 const app = express(); // app is an instance of the Express server.
 app.use(express.json()); // app.use(express.json()) allows the server to parse incoming JSON data.
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', "https://shop3dprints.onrender.com"];  // Add all your frontend origins here
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', "https://shop3dprints.onrender.com", 'https://shop3dprints.vercel.app'];  // Add all your frontend origins here
 const corsOptions = {
     origin: function (origin, callback) {
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {  // !origin allows no-origin requests (for testing)
