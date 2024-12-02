@@ -23,6 +23,18 @@ const Cart = () => {
     return items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
   };
 
+  const handleQuantityChange = (productId, color, change) => {
+    const updatedItems = items.map((item) => {
+      if (item._id === productId && item.color === color) {
+        const newCount = Math.min(Math.max(item.count + change, 1), maxQuantity); // Ensure value is within 1 to maxQuantity
+        updateItem(productId, newCount, color); // Persist the change in storage
+        return { ...item, count: newCount };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+  };
+
   const handleChange = (productId, color) => (event) => {
     const value = Math.max(1, Math.min(maxQuantity, Number(event.target.value))); // Clamp value between 1 and maxQuantity
     const updatedItems = items.map((item) =>
@@ -112,13 +124,19 @@ const Cart = () => {
                   <div className="quantity-section">
                     <p>Quantity:</p>
                     <span>Adjust quantity</span>
-                    <input
-                      type="number"
-                      value={item.count || 1}
-                      onChange={handleChange(item._id, item.color)}
-                    />
+                    <div className="quantity-controls">
+                      <button onClick={() => handleQuantityChange(item._id, item.color, -1)}>-</button>
+                      <input
+                        type="number"
+                        value={item.count || 1}
+                        onChange={handleChange(item._id, item.color)}
+                        min="1"
+                        max={maxQuantity}
+                      />
+                      <button onClick={() => handleQuantityChange(item._id, item.color, 1)}>+</button>
+                    </div>
                   </div>
-                  <button onClick={() => DeleteCartItem(item._id, item.color)}>Remove</button>
+                  <button className="removeFromCartButton" onClick={() => DeleteCartItem(item._id, item.color)}>Remove</button>
                 </li>
               ))}
             </ul>

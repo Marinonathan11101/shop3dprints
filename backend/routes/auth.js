@@ -16,7 +16,7 @@ router.post("/signup", async (req, res) => {
     // The req object represents the HTTP request that the client (e.g., your frontend application) makes to the server. It contains information about what the client is asking for
 
     // The res object is what the server uses to send back data to the client. You can think of it as the server’s way of "responding" to the client's request with some data or a message. Common methods of res include:
-    const { displayName, email, password, shippingAddress, isAdmin } = req.body;
+    const { displayName, email, password, shippingAddress, postalCode, country, city, isAdmin } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
@@ -33,6 +33,9 @@ router.post("/signup", async (req, res) => {
             email,
             password: hashedPassword,
             shippingAddress,
+            postalCode,
+            country,
+            city,
             isAdmin: isAdmin || false // If `isAdmin` is not provided, default to false
         });
 

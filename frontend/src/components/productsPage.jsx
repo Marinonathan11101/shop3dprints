@@ -22,6 +22,7 @@ const ProductsPage = () => {
   
 
     return (
+        <div>
         <div className="ProductsPageContainer">
             <Nav />
             <div className="MainContent">
@@ -66,7 +67,9 @@ const ProductsPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            
+        </div>
+        <Footer />
         </div>
     );
 };

@@ -5,6 +5,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
+body{
+  overflow-x: hidden;
+}
+
 
 .App {
   text-align: center;
@@ -59,33 +64,37 @@
 /* Nav styling */
 
 .LogoAndImage img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 
-.logOutButton{
+.logOutButton {
   padding: 0.5em;
   background-color: white;
 
 }
 
-.logOutButton:hover{
+.logOutButton:hover {
   transform: scale(1.1);
 }
+
 /* Wrapper ensures proper positioning */
 .sideMenu {
   position: fixed;
   top: 0;
-  left: -300px; /* Hidden by default */
-  width: 300px;
+  left: -100px;
+  /* Hidden by default */
+  width: 100px;
   height: 100%;
   background-color: #f4f4f4;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease; /* Smooth slide effect */
+  transition: left 0.3s ease;
+  /* Smooth slide effect */
 }
 
 .sideMenu.open {
-  left: 0; /* Slide in when open */
+  left: 0;
+  /* Slide in when open */
 }
 
 .sideMenuContent {
@@ -135,12 +144,12 @@ header {
   gap: 1em;
 }
 
-.CartLink{
+.CartLink {
   text-decoration: none;
   color: black;
 }
 
-.LikeLink{
+.LikeLink {
   text-decoration: none;
   color: black;
 }
@@ -209,8 +218,8 @@ header {
 .sideMenu {
   position: fixed;
   top: 0;
-  left: -500px;
-  width: 500px;
+  left: -200px;
+  width: 200px;
   height: 100%;
   background-color: #333;
   overflow-x: hidden;
@@ -260,20 +269,21 @@ header {
   padding: 10px;
 }
 
-.Seperator{
+.Seperator {
   padding: 5px;
   background-color: black;
   width: 50%;
 }
-.SeperatorContainer{
+
+.SeperatorContainer {
   display: flex;
   justify-content: center;
 }
 
 /* Our Service */
 
-.OurServiceImage{
-  
+.OurServiceImage {
+
   width: 50%;
   background-image: url("./images/Elegoo.png");
   background-size: cover;
@@ -281,12 +291,12 @@ header {
   padding: 15em;
 }
 
-.OurService{
+.OurService {
   display: flex;
 
 }
 
-.OurServiceText{
+.OurServiceText {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -295,38 +305,39 @@ header {
   background-color: black;
   padding: 15em;
   color: white;
-  
+
 }
 
-.OurServiceText h2{
+.OurServiceText h2 {
   font-size: xx-large;
   padding: 2em;
 }
-.OurServiceText  {
+
+.OurServiceText {
   text-align: center;
 }
 
-.OurServiceText button{
+.OurServiceText button {
   margin-top: 1em;
   padding: 1em;
   background-color: #73caea;
 }
 
-.Info{
+.Info {
   padding: 5em;
 }
 
-.InfoContainer{
+.InfoContainer {
   text-align: center;
   display: flex;
   justify-content: space-around
 }
 
-.InfoContainer img{
+.InfoContainer img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  
+
 }
 
 /* All products styling */
@@ -363,6 +374,10 @@ header {
   text-align: center;
 }
 
+.Sign-In div{
+  margin-right: 15em;
+}
+
 /* Footer */
 
 .footerContainer img {
@@ -387,10 +402,19 @@ header {
   margin-bottom: 2em;
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 430px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .headerDiv {
     gap: 1em;
     font-size: 10px;
+    width: 100%;
   }
 
   .LogoAndImage img {
@@ -423,9 +447,15 @@ header {
   }
 
   .title h1 {
-    font-size: 20px;
+    font-size: 15px;
     white-space: nowrap;
 
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    right: 10px;
   }
 
   header {
@@ -438,8 +468,8 @@ header {
   }
 
   .sideMenu {
-    left: -200px;
-    width: 200px;
+    left: -75px;
+    width: 75px;
   }
 
   .Sign-In img {
@@ -457,87 +487,746 @@ header {
     gap: 1em;
   }
 
-  @media (max-width: 360px) {
-    .headerDiv {
-      gap: 1em;
-      font-size: 10px;
-    }
+  .search-icon {
+    display: none;
+  }
 
-    .LogoAndImage img {
+  /* Adjust size of OurService divs */
+  .OurService {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
 
-      width: 80px;
-      height: 80px;
-    }
+  .OurServiceText {
+    width: auto;
+    text-align: center;
+    font-size: 12px;
+  }
 
-    .Categories {
-      gap: 0.5em;
-      right: 0;
-    }
+  .OurServiceText h2 {
+    font-size: 16px;
+  }
 
-    .cart-Likes-SignIn {
-      flex-wrap: wrap;
-    }
+  .OurServiceText p {
+    font-size: 12px;
+  }
 
-    .Cart img {
-      width: 15px;
-      height: 15px;
-    }
+  .OurServiceText button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
 
-    .Likes img {
-      width: 15px;
-      height: 15px;
-    }
+  .Info img {
+    width: 80px;
+    height: 80px;
+  }
 
-    .Sign-In {
-      left: 0;
-    }
+  .logOutButton {
+    padding: 0;
+  }
 
-    .title h1 {
-      font-size: 15px;
-      white-space: nowrap;
+  .SearchBar input {
+    width: 100%;
+    height: 20%;
+    padding: 0;
+  }
 
-    }
+  .LogoAndImage img {
+    width: 50px;
+    height: 50px;
+  }
 
-    .search-icon {
-      width: 20px;
-      height: 20px;
-      right: 10px;
-    }
-
-    header {
-      width: 100%;
-    }
-
-    .SearchBar input {
-      width: 80%;
-      border-radius: 8px;
-    }
-
-    .sideMenu {
-      left: -200px;
-      width: 200px;
-    }
-
-    .Sign-In img {
-      height: 15px;
-      width: 15px;
-    }
-
-    .Categories img {
-      height: 15px;
-      width: 15px;
-    }
-
-    .Sign-In {
-      display: flex;
-      gap: 1em;
-    }
-
-    .search-icon {
-      display: none;
-    }
+  .cart-badge {
+    font-size: 0.1rem;
+    padding: 0 !important;
+    min-width: 10px !important;
+    left: 8px !important;
+    right: 5px !important;
+    bottom: 15px !important;
 
   }
+
+  .InfoContainer h2 {
+    font-size: 15px;
+  }
+
+  .InfoContainer {
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .SignInPage {
+    transform: scale(0.5);
+    /* Scale the page content to 80% of its original size */
+    transform-origin: top center;
+  }
+
+  .signInContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AlreadyHaveAccount,
+  .DHAContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust input fields and buttons for mobile */
+  input {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+  }
+
+  .buttonContainerAHA,
+  .buttonContainerDHA {
+    display: flex;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* Adjust heading size */
+  }
+
+  .GridContainer {
+    transform: scale(0.5);
+  }
+
+  .GridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+
+  }
+
+  .likesContainer ul {
+    transform: scale(0.7);
+  }
+
+  .ProductsPageContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    /* Center horizontally */
+    text-align: center;
+    /* Optional, in case you need the text to be centered */
+  }
+
+  .ProductsPageImageContainer {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically if necessary */
+    width: 100%;
+    /* Ensure it takes full width */
+  }
+
+  .ProductsPageImageContainer img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain;
+    /* Keeps image aspect ratio intact */
+  }
+
+  .removeFromCartButton {
+    position: relative;
+    bottom: 3em;
+    left: 0.5em;
+    right: 6em;
+  }
+
+  .MainContent {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .PageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the page takes the full height */
+  }
+
+  .CartPage {
+    flex-grow: 1;
+    /* This makes the CartPage section grow to fill available space */
+    overflow-y: auto;
+    /* Ensure content can scroll if needed */
+  }
+
+  .Summary {
+    flex-shrink: 0;
+    /* Prevent Summary from shrinking */
+  }
+
+  .Footer {
+    margin-top: auto;
+    /* Push the footer to the bottom */
+  }
+
+
+
+
+
+
+
+}
+
+@media (max-width: 360px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .headerDiv {
+    gap: 1em;
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .LogoAndImage img {
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .Categories {
+    gap: 0.5em;
+    right: 0;
+  }
+
+  .cart-Likes-SignIn {
+    flex-wrap: wrap;
+  }
+
+  .Cart img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Likes img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Sign-In {
+    left: 0;
+  }
+
+  .title h1 {
+    font-size: 15px;
+    white-space: nowrap;
+
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .SearchBar input {
+    width: 80%;
+    border-radius: 8px;
+  }
+
+  .sideMenu {
+    left: -75px;
+    width: 75px;
+  }
+
+  .Sign-In img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Categories img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Sign-In {
+    display: flex;
+    gap: 1em;
+    
+
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  /* Adjust size of OurService divs */
+  .OurService {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .OurServiceText {
+    width: auto;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .OurServiceText h2 {
+    font-size: 16px;
+  }
+
+  .OurServiceText p {
+    font-size: 12px;
+  }
+
+  .OurServiceText button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .Info img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logOutButton {
+    padding: 0;
+  }
+
+  .SearchBar input {
+    width: 100%;
+    height: 20%;
+    padding: 0;
+  }
+
+  .LogoAndImage img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-badge {
+    font-size: 0.1rem;
+    padding: 0 !important;
+    min-width: 10px !important;
+    left: 8px !important;
+    right: 5px !important;
+    bottom: 15px !important;
+
+  }
+
+  .InfoContainer h2 {
+    font-size: 15px;
+  }
+
+  .InfoContainer {
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .SignInPage {
+    transform: scale(0.5);
+    /* Scale the page content to 80% of its original size */
+    transform-origin: top center;
+  }
+
+  .signInContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AlreadyHaveAccount,
+  .DHAContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust input fields and buttons for mobile */
+  input {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+  }
+
+  .buttonContainerAHA,
+  .buttonContainerDHA {
+    display: flex;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* Adjust heading size */
+  }
+
+  .GridContainer {
+    transform: scale(0.5);
+  }
+
+  .GridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+
+  }
+
+  .likesContainer ul {
+    transform: scale(0.7);
+  }
+
+  .ProductsPageContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    /* Center horizontally */
+    text-align: center;
+    /* Optional, in case you need the text to be centered */
+  }
+
+  .ProductsPageImageContainer {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically if necessary */
+    width: 100%;
+    /* Ensure it takes full width */
+  }
+
+  .ProductsPageImageContainer img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain;
+    /* Keeps image aspect ratio intact */
+  }
+
+  .removeFromCartButton {
+    position: relative;
+    bottom: 3em;
+    right: 6em;
+  }
+
+  .MainContent {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .PageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the page takes the full height */
+  }
+
+  .CartPage {
+    flex-grow: 1;
+    /* This makes the CartPage section grow to fill available space */
+    overflow-y: auto;
+    /* Ensure content can scroll if needed */
+  }
+
+  .Summary {
+    flex-shrink: 0;
+    /* Prevent Summary from shrinking */
+  }
+
+  .Footer {
+    margin-top: auto;
+    /* Push the footer to the bottom */
+  }
+
+
+
+
+
+
+
+}
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .headerDiv {
+    gap: 1em;
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .LogoAndImage img {
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .Categories {
+    gap: 0.5em;
+    right: 0;
+  }
+
+  .cart-Likes-SignIn {
+    flex-wrap: wrap;
+  }
+
+  .Cart img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Likes img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Sign-In {
+    left: 0;
+  }
+
+  .title h1 {
+    font-size: 15px;
+    white-space: nowrap;
+
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .SearchBar input {
+    width: 80%;
+    border-radius: 8px;
+  }
+
+  .sideMenu {
+    left: -75px;
+    width: 75px;
+  }
+
+  .Sign-In img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Categories img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Sign-In {
+    display: flex;
+    gap: 1em;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  /* Adjust size of OurService divs */
+  .OurService {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .OurServiceText {
+    width: auto;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .OurServiceText h2 {
+    font-size: 16px;
+  }
+
+  .OurServiceText p {
+    font-size: 12px;
+  }
+
+  .OurServiceText button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .Info img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logOutButton {
+    padding: 0;
+  }
+
+  .SearchBar input {
+    width: 100%;
+    height: 20%;
+    padding: 0;
+  }
+
+  .LogoAndImage img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-badge {
+    font-size: 0.1rem;
+    padding: 0 !important;
+    min-width: 10px !important;
+    left: 8px !important;
+    right: 5px !important;
+    bottom: 15px !important;
+
+  }
+
+  .InfoContainer h2 {
+    font-size: 15px;
+  }
+
+  .InfoContainer {
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .SignInPage {
+    transform: scale(0.5);
+    /* Scale the page content to 80% of its original size */
+    transform-origin: top center;
+  }
+
+  .signInContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AlreadyHaveAccount,
+  .DHAContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust input fields and buttons for mobile */
+  input {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+  }
+
+  .buttonContainerAHA,
+  .buttonContainerDHA {
+    display: flex;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* Adjust heading size */
+  }
+
+  .GridContainer {
+    transform: scale(0.5);
+  }
+
+  .GridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+
+  }
+
+  .likesContainer ul {
+    transform: scale(0.7);
+  }
+
+  .ProductsPageContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    /* Center horizontally */
+    text-align: center;
+    /* Optional, in case you need the text to be centered */
+  }
+
+  .ProductsPageImageContainer {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically if necessary */
+    width: 100%;
+    /* Ensure it takes full width */
+  }
+
+  .ProductsPageImageContainer img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain;
+    /* Keeps image aspect ratio intact */
+  }
+
+  .removeFromCartButton {
+    position: relative;
+    bottom: 3em;
+    right: 6em;
+  }
+
+  .MainContent {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .PageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the page takes the full height */
+  }
+
+  .CartPage {
+    flex-grow: 1;
+    /* This makes the CartPage section grow to fill available space */
+    overflow-y: auto;
+    /* Ensure content can scroll if needed */
+  }
+
+  .Summary {
+    flex-shrink: 0;
+    /* Prevent Summary from shrinking */
+  }
+
+  .Footer {
+    margin-top: auto;
+    /* Push the footer to the bottom */
+  }
+
+
+
+
 
 
 
@@ -592,12 +1281,16 @@ header {
 #emailRegister,
 #passwordRegister,
 #confirmPassword,
-#shippingAddress {
+#shippingAddress,
+#postalCode,
+#country,
+#city {
   padding: 20px;
   width: 100%;
 }
 
-.buttonContainerAHA, .buttonContainerDHA {
+.buttonContainerAHA,
+.buttonContainerDHA {
   text-align: center;
 
 }
@@ -610,7 +1303,8 @@ header {
   background-color: #61dafb;
 }
 
-.buttonContainerAHA button, .buttonContainerDHA button {
+.buttonContainerAHA button,
+.buttonContainerDHA button {
   padding: 1em;
   background-color: #61dafb;
   border: 1px solid black;
@@ -619,7 +1313,7 @@ header {
   font-weight: bold;
 }
 
-.DHAContainer input{
+.DHAContainer input {
   margin-bottom: 2em;
 }
 
@@ -627,99 +1321,104 @@ header {
   margin: 1em;
 }
 
-.DHAContainer p{
+.DHAContainer p {
   margin: 1em;
 }
 
-.AlreadyHaveAccount p{
+.AlreadyHaveAccount p {
   margin: 1em;
 }
 
 /* Add product form */
 
-.addProductForm
-{
+.addProductForm {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   min-height: 75vh;
-  
+
 }
 
-.bodyContainer h2{
+.bodyContainer h2 {
   text-align: center;
 }
 
 /* ProductsPage */
 
-.ProductsPageImageContainer{
+.ProductsPageImageContainer {
   padding: 4em;
 
   /* float: left; */
 }
 
-.ProductsPageImageContainer img{
+.ProductsPageImageContainer img {
   border: solid 5px black;
   border-radius: 25%;
 }
 
-.ProductsPageImageContainer img{
+.ProductsPageImageContainer img {
   width: 600px;
   height: 600px;
 }
 
-.ProductInfoContainer h2{
+.ProductInfoContainer h2 {
   padding: 2em;
 }
 
-.ProductInfoContainer{
+.ProductInfoContainer {
   text-align: center;
   font-size: 1.5em;
   padding: 1em;
 }
 
-.ProductInfoContainer h3{
+.ProductInfoContainer h3 {
   padding: 1em;
 }
 
 /* Footer should stay at the bottom */
 /* footer {
     margin-top: auto; /* Push footer to the bottom of the page */
- 
-.MainContent{
+
+.MainContent {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
 }
 
-footer{
+footer {
   margin-top: auto;
 }
 
 .color-container {
   display: flex;
-  gap: 10px; /* Space between circles */
+  gap: 10px;
+  /* Space between circles */
   margin-top: 10px;
   justify-content: center;
   padding: 1em;
 }
 
 .color-circle {
-  width: 30px; /* Circle size */
+  width: 30px;
+  /* Circle size */
   height: 30px;
-  border-radius: 50%; /* Makes it a circle */
-  border: 1px solid #ccc; /* Optional border */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  border-radius: 50%;
+  /* Makes it a circle */
+  border: 1px solid #ccc;
+  /* Optional border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Optional shadow */
   display: inline-block;
-  cursor: pointer; /* Pointer cursor for interactivity */
+  cursor: pointer;
+  /* Pointer cursor for interactivity */
 }
 
-.colorSection p{
+.colorSection p {
   margin-top: 2em;
 }
 
-.AddToCartButtonContainer button{
+.AddToCartButtonContainer button {
   margin-top: 1em;
   background-color: #61dafb;
   padding: 1em;
@@ -729,12 +1428,12 @@ footer{
   border: none;
 }
 
-.AddToCartButtonContainer button:hover{
-   transform: scale(1.1);
-  
+.AddToCartButtonContainer button:hover {
+  transform: scale(1.1);
+
 }
 
-.LikeButton{
+.LikeButton {
   padding: 1em;
   width: 25%;
   background-color: #61dafb;
@@ -764,7 +1463,7 @@ footer{
 
 /* Likes Page */
 
-.wishListContainer{
+.wishListContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -774,7 +1473,8 @@ footer{
 .likesDiv {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the page takes full height */
+  min-height: 100vh;
+  /* Ensure the page takes full height */
 }
 
 /* Ensure the content section takes the available space */
@@ -782,12 +1482,12 @@ footer{
   flex: 1;
 }
 
-.likesContainer img{
+.likesContainer img {
   height: 100px;
   width: 100px;
 }
 
-.likesButtonRemove{
+.likesButtonRemove {
   background-color: black;
   padding: 0.5em;
   width: 25%;
@@ -795,13 +1495,13 @@ footer{
   border-radius: 10%;
 }
 
-.likesContainer{
+.likesContainer {
   background-color: #73caea;
   width: 75%;
   border: solid 3px black;
 }
 
-.likesContainer ul{
+.likesContainer ul {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -811,12 +1511,14 @@ footer{
 
 .likesContainer li {
   display: flex;
-  align-items: center; /* Aligns image and text vertically */
-  gap: 1em; /* Adds spacing between the image and the text */
-  
+  align-items: center;
+  /* Aligns image and text vertically */
+  gap: 1em;
+  /* Adds spacing between the image and the text */
+
 }
 
-.likesContainer h2{
+.likesContainer h2 {
   text-align: center;
   padding: 2em;
   font-size: xx-large;
@@ -824,13 +1526,13 @@ footer{
 
 /* Cart Page */
 
-.CartPage h2{
+.CartPage h2 {
   text-align: center;
   padding: 2em;
 }
 
 
-.GridContainer{
+.GridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
@@ -838,7 +1540,7 @@ footer{
   height: 400px;
 }
 
-.Summary{
+.Summary {
   background-color: #73caea;
   grid-column: 3;
   grid-row: 1 / 3;
@@ -848,7 +1550,7 @@ footer{
   border: black 3px solid;
 }
 
-.itemsGrid{
+.itemsGrid {
   grid-column: 2;
   grid-row: 2;
   background-color: #73caea;
@@ -867,55 +1569,54 @@ footer{
 
 .itemsGrid li {
   display: flex;
-  align-items: center; /* Vertically center the items */
-  gap: 10px; /* Space between the image and text */
-  border: 1px solid #ccc; /* Optional: Add a border */
+  align-items: center;
+  /* Vertically center the items */
+  gap: 10px;
+  /* Space between the image and text */
+  border: 1px solid #ccc;
+  /* Optional: Add a border */
   padding: 10px;
   border-radius: 5px;
-  background-color: #f9f9f9; /* Optional: Add a background color */
+  background-color: #f9f9f9;
+  /* Optional: Add a background color */
 }
 
 .itemsGrid img {
-  width: 50px; /* Set a fixed width for the image */
-  height: 50px; /* Set a fixed height for the image */
-  object-fit: cover; /* Ensure the image fits nicely within the dimensions */
-  border-radius: 5px; /* Optional: Add rounded corners */
+  width: 50px;
+  /* Set a fixed width for the image */
+  height: 50px;
+  /* Set a fixed height for the image */
+  object-fit: cover;
+  /* Ensure the image fits nicely within the dimensions */
+  border-radius: 5px;
+  /* Optional: Add rounded corners */
 }
+
 .buttonContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
-.buttonContainer button{
- position:relative;
- top: 8em;
- background-color: black;
- padding: 1em;
- width: 30%;
- color: white;
+.buttonContainer button {
+  position: relative;
+  top: 8em;
+  background-color: black;
+  padding: 1em;
+  width: 30%;
+  color: white;
 }
 
 .PageContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+  min-height: 100vh;
+  /* Ensure the container takes up the full viewport height */
 }
 
-.SignInButtonContainer button{
+.SignInButtonContainer button {
   padding: 1em;
   background-color: black;
   color: white;
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -11,6 +11,9 @@ const SignInForm = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [shippingAddress, setShippingAddress] = useState('');
+    const [postalCode, setPostalCode] = useState('');
+    const [country, setCountry] = useState('');
+    const [city, setCity] = useState('');
     const navigate = useNavigate();
 
     const validatePassword = (password) => {
@@ -18,6 +21,11 @@ const SignInForm = () => {
         const passwordPattern = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
         return passwordPattern.test(password);
     };
+
+    const validatePostalCode = (postalCode) => {
+        const postalCodePattern = /[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d/;
+        return postalCodePattern.test(postalCode);
+    }
 
     // These useState calls create state variables for each form field, initializing them as empty strings.
     // Each variable (displayName, email, password, confirmPassword) holds the input value for its respective field, while the associated set... functions allow you to update these values.
@@ -35,7 +43,11 @@ const SignInForm = () => {
             return; // Exit if password doesn't meet requirements
         }
 
-        const newUser = { displayName, email, password, shippingAddress };
+        if (!validatePostalCode(postalCode)){
+            alert("Invalid postal code")
+        }
+
+        const newUser = { displayName, email, password, shippingAddress, postalCode, country, city };
 
         try {
             const response = await fetch('https://shop3dprints.onrender.com/api/signup', { // sends the new user data to the server
@@ -58,6 +70,9 @@ const SignInForm = () => {
                 setPassword('');
                 setConfirmPassword('');
                 setShippingAddress('');
+                setPostalCode('');
+                setCountry('');
+                setCity('');
                 alert("User created successfully");
             }
             else {
@@ -208,6 +223,39 @@ const SignInForm = () => {
                                 required
                             />
                         </div>
+                        <div>
+                            <label htmlFor="postalCode">Postal Code:</label>
+                            <input
+                                type="text"
+                                id="postalCode"
+                                name="postalCode"
+                                value={postalCode} // Bind confirmPassword state
+                                onChange={(e) => setPostalCode(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="country">Country:</label>
+                            <input
+                                type="text"
+                                id="country"
+                                name="country"
+                                value={country} // Bind confirmPassword state
+                                onChange={(e) => setCountry(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="city">City:</label>
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                value={city} // Bind confirmPassword state
+                                onChange={(e) => setCity(e.target.value)}
+                                required
+                            />
+                        </div>
 
                         <div className='buttonContainerDHA'>
                             <button type="submit">Sign Up</button>
@@ -215,8 +263,9 @@ const SignInForm = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
+            
         </div>
+        <Footer />
     </body>
     );
 

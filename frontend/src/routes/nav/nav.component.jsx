@@ -1,5 +1,5 @@
 import '../../App.css';
-import logo from "../../images/logo.jpg";
+import logo from "../../images/logo.png";
 import searchIcon from "../../images/searchBar.png";
 import cartIcon from "../../images/cart.png";
 import heartIcon from "../../images/heart.png";
@@ -247,10 +247,12 @@ return (
                             <button className='logOutButton' onClick={handleLogout}>Logout</button>
                         </div>
                     ) : (
+                        <div>
                         <Link className='SignInLink' to={"/signIn"}>
                             <img src={signInIcon} alt="Image to sign in" />
                             <p>SIGN IN</p>
                         </Link>
+                        </div>
                     )}
                 </div>
             </div>
