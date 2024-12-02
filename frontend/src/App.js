@@ -9,6 +9,7 @@ import {jwtDecode} from 'jwt-decode';
 import ProductsPage from "./components/productsPage"
 import Cart from "./cart/cart.jsx"
 import LikesPage from "./components/likesPage.jsx"
+import ReviewPage from './components/ReviewPage.jsx';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ function App() {
       <Route path="/products" element={<ProductsPage/>} />
       <Route path="/cart" element={<Cart/>} />
       <Route path='/likes' element={<LikesPage/>} />
+      <Route path='/reviews' element={<ReviewPage/>} />
     </Routes>
     
     

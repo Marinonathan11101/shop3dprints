@@ -175,12 +175,6 @@ function Home({ isAdmin }) {
 
             </section>
 
-            <div className='SeperatorContainer'>
-                <div className='Seperator'>
-
-                </div>
-            </div>
-
 
             <section ref={productsSectionRef} className="AllProducts">
                 <h2>ALL PRODUCTS</h2>

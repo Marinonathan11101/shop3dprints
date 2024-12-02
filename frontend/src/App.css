@@ -82,7 +82,7 @@ body{
 .sideMenu {
   position: fixed;
   top: 0;
-  left: -100px;
+  right: -100px;
   /* Hidden by default */
   width: 100px;
   height: 100%;
@@ -93,7 +93,7 @@ body{
 }
 
 .sideMenu.open {
-  left: 0;
+  right: 0;
   /* Slide in when open */
 }
 
@@ -201,6 +201,21 @@ header {
   height: 30px;
 }
 
+.ReviewLink{
+  text-decoration: none;
+  color: black;
+}
+
+.Reviews{
+  display: flex;
+  gap: 1em;
+}
+
+.Reviews img{
+  width: 30px;
+  height: 30px;
+}
+
 .Likes {
   display: flex;
   gap: 1em;
@@ -218,7 +233,7 @@ header {
 .sideMenu {
   position: fixed;
   top: 0;
-  left: -200px;
+  right: -200px;
   width: 200px;
   height: 100%;
   background-color: #333;
@@ -296,6 +311,13 @@ header {
 
 }
 
+.Info{
+  background-color: #73caea;
+  margin-top: 10em;
+  box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.3);
+
+}
+
 .OurServiceText {
   width: 50%;
   display: flex;
@@ -315,6 +337,10 @@ header {
 
 .OurServiceText {
   text-align: center;
+}
+
+.OurService{
+  box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .OurServiceText button {
@@ -337,6 +363,7 @@ header {
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  border: 5px solid black;
 
 }
 
@@ -362,6 +389,10 @@ header {
 .cart-Likes-SignIn {
   display: flex;
   gap: 1em;
+}
+
+.productItem img{
+  border: 5px solid black;
 }
 
 .productsContainer {
@@ -596,7 +627,7 @@ header {
   }
 
   .GridContainer {
-    transform: scale(0.5);
+    /* transform: scale(0.5); */
   }
 
   .GridContainer {
@@ -638,10 +669,11 @@ header {
 
   .removeFromCartButton {
     position: relative;
-    bottom: 3em;
-    left: 0.5em;
-    right: 6em;
+    top: 0.2em;
+    left:5.5em;
+
   }
+
 
   .MainContent {
     display: flex !important;
@@ -656,14 +688,15 @@ header {
   }
 
   .CartPage {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* This makes the CartPage section grow to fill available space */
     overflow-y: auto;
     /* Ensure content can scroll if needed */
   }
 
   .Summary {
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
+    width: 50% !important;
     /* Prevent Summary from shrinking */
   }
 
@@ -672,6 +705,359 @@ header {
     /* Push the footer to the bottom */
   }
 
+
+  .GridContainer {
+    flex-direction: column; /* Stacks the items vertically */
+    gap: 15px;
+  }
+
+  .itemsGrid, .Summary {
+    margin-bottom: 20px;
+  }
+
+  .itemsGrid ul {
+    padding: 0;
+  }
+
+  .itemsGrid li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .removeFromCartButton {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  .Summary h2 {
+    font-size: 1.2rem;
+  }
+  
+
+
+
+
+
+
+}
+
+@media (max-width: 360px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .headerDiv {
+    gap: 1em;
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .LogoAndImage img {
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .Categories {
+    gap: 0.5em;
+    right: 0;
+  }
+
+  .cart-Likes-SignIn {
+    flex-wrap: wrap;
+  }
+
+  .Cart img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Likes img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .Sign-In {
+    left: 0;
+  }
+
+  .title h1 {
+    font-size: 15px;
+    white-space: nowrap;
+
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .SearchBar input {
+    width: 80%;
+    border-radius: 8px;
+  }
+
+  .sideMenu {
+    left: -75px;
+    width: 75px;
+  }
+
+  .Sign-In img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Categories img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .Sign-In {
+    display: flex;
+    gap: 1em;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  /* Adjust size of OurService divs */
+  .OurService {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .OurServiceText {
+    width: auto;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .OurServiceText h2 {
+    font-size: 16px;
+  }
+
+  .OurServiceText p {
+    font-size: 12px;
+  }
+
+  .OurServiceText button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .Info img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logOutButton {
+    padding: 0;
+  }
+
+  .SearchBar input {
+    width: 100%;
+    height: 20%;
+    padding: 0;
+  }
+
+  .LogoAndImage img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-badge {
+    font-size: 0.1rem;
+    padding: 0 !important;
+    min-width: 10px !important;
+    left: 8px !important;
+    right: 5px !important;
+    bottom: 15px !important;
+
+  }
+
+  .InfoContainer h2 {
+    font-size: 15px;
+  }
+
+  .InfoContainer {
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .SignInPage {
+    transform: scale(0.5);
+    /* Scale the page content to 80% of its original size */
+    transform-origin: top center;
+  }
+
+  .signInContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AlreadyHaveAccount,
+  .DHAContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust input fields and buttons for mobile */
+  input {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+  }
+
+  .buttonContainerAHA,
+  .buttonContainerDHA {
+    display: flex;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* Adjust heading size */
+  }
+
+  .GridContainer {
+    /* transform: scale(0.5); */
+  }
+
+  .GridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+
+  }
+
+  .likesContainer ul {
+    transform: scale(0.7);
+  }
+
+  .ProductsPageContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    /* Center horizontally */
+    text-align: center;
+    /* Optional, in case you need the text to be centered */
+  }
+
+  .ProductsPageImageContainer {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically if necessary */
+    width: 100%;
+    /* Ensure it takes full width */
+  }
+
+  .ProductsPageImageContainer img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain;
+    /* Keeps image aspect ratio intact */
+  }
+
+  .removeFromCartButton {
+    position: relative;
+    top: 0.2em;
+    left:5.5em;
+
+  }
+
+
+  .MainContent {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .PageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the page takes the full height */
+  }
+
+  .CartPage {
+    /* flex-grow: 1; */
+    /* This makes the CartPage section grow to fill available space */
+    overflow-y: auto;
+    /* Ensure content can scroll if needed */
+  }
+
+  .Summary {
+    /* flex-shrink: 0; */
+    width: 50% !important;
+    /* Prevent Summary from shrinking */
+  }
+
+  .Footer {
+    margin-top: auto;
+    /* Push the footer to the bottom */
+  }
+
+
+  .GridContainer {
+    flex-direction: column; /* Stacks the items vertically */
+    gap: 15px;
+  }
+
+  .itemsGrid, .Summary {
+    margin-bottom: 20px;
+  }
+
+  .itemsGrid ul {
+    padding: 0;
+  }
+
+  .itemsGrid li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .removeFromCartButton {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  .Summary h2 {
+    font-size: 1.2rem;
+  }
+
+  .itemsGrid{/* Add margin to push it down a bit */
+    margin-top: 20em;
+  }
+
+  
 
 
 
@@ -883,6 +1269,14 @@ header {
 
   }
 
+  .Summary{
+      width: 100% !important;
+  }
+
+  .itemsGrid{
+    width: 100% !important;
+  }
+
   .likesContainer ul {
     transform: scale(0.7);
   }
@@ -951,7 +1345,44 @@ header {
 
 
 
+  .GridContainer {
+    flex-direction: column; /* Stacks the items vertically */
+    gap: 15px;
+  }
 
+  .itemsGrid, .Summary {
+    margin-bottom: 20px;
+  }
+
+  .itemsGrid ul {
+    padding: 0;
+  }
+
+  .itemsGrid li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .removeFromCartButton {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  .Summary h2 {
+    font-size: 1.2rem;
+  }
+  
+
+  .itemsGrid {/* Add margin to push it down a bit */
+    margin-top: 20em;
+  }
 
 
 
@@ -1225,6 +1656,45 @@ header {
   }
 
 
+
+
+  .GridContainer {
+    flex-direction: column; /* Stacks the items vertically */
+    gap: 15px;
+  }
+
+  .itemsGrid, .Summary {
+    margin-bottom: 20px;
+  }
+
+  .itemsGrid ul {
+    padding: 0;
+  }
+
+  .itemsGrid li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .removeFromCartButton {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  .Summary h2 {
+    font-size: 1.2rem;
+  }
+
+  .itemsGrid {/* Add margin to push it down a bit */
+    margin-top: 20em;
+  }
 
 
 
@@ -1592,12 +2062,15 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
+}
+.buttonContainer button{
+  width: 100%;
 }
 
 .buttonContainer button {
-  position: relative;
-  top: 8em;
+  margin-top: 2em;
   background-color: black;
   padding: 1em;
   width: 30%;
@@ -1615,4 +2088,16 @@ footer {
   padding: 1em;
   background-color: black;
   color: white;
+}
+
+/* Review Page */
+
+.PageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height of the viewport */
+}
+
+.ReviewPageContainer {
+  flex-grow: 1; /* Makes this section take up all available space */
 }

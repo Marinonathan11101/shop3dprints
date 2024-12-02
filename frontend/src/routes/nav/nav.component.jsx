@@ -11,6 +11,7 @@ import SignInForm from '../../components/sign-up-form.component';
 import { jwtDecode } from 'jwt-decode';
 import { itemTotal } from '../../cart/cartHelper';
 import { ClearCart } from '../../cart/cartHelper';
+import reviewStar from "../../images/reviewStar.png";
 
 function Nav({ scrollToProducts }) {
 
@@ -229,6 +230,12 @@ return (
                     <Link className='LikeLink' to={"/likes"}>
                         <img src={heartIcon} alt="Image of a heart" />
                         <p>LIKES</p>
+                    </Link>
+                </div>
+                <div className="Reviews">
+                    <Link className='ReviewLink' to={"/reviews"}>
+                        <img src={reviewStar} alt="image of a star" />
+                        <p>REVIEW</p>
                     </Link>
                 </div>
 

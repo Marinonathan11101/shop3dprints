@@ -76,6 +76,7 @@ router.post("/login", async (req, res) => {
             success: true,
             token: token,
             displayName: user.displayName,  // Send the displayName to the frontend
+            id: user._id
           });
         
 
@@ -128,6 +129,22 @@ router.get('/users/:name', async (req, res) => {
     } catch (error) {
         console.error("Error fetching user:", error);
         res.status(500).json({ message: "Server error" });
+    }
+});
+
+router.get('/users/:id', async (req, res) => {
+    try {
+        const { id } = req.params; // Extract user ID from request parameters
+        const user = await User.findById(id); // Find user by ID
+
+        if (!user) { // If user is not found
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(user); // Send user data as JSON response
+    } catch (error) {
+        console.error("Error fetching user:", error); // Log server error for debugging
+        res.status(500).json({ message: "Server error" }); // Send error response
     }
 });
 
