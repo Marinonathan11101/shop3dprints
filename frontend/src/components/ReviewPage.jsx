@@ -17,7 +17,7 @@ const getUserFromDataBase = async () => {
 
 
     try{
-        const response = await fetch(`https://shop3dprints.onrender.com/api/users/${userId}`, {
+        const response = await fetch(`https://shop3dprints.onrender.com/api/users/id/${userId}`, {
             method: 'GET',
         });
         
@@ -25,7 +25,8 @@ const getUserFromDataBase = async () => {
         if (response.ok)
         {
             const data = await response.json();
-            return data;
+            console.log("response fine")
+            // return data;
         }
         else{
             console.error('Failed to fetch user at the id');
@@ -69,8 +70,9 @@ const GenerateOptions = (user) => {
 const ReviewPage = () => {
 
     useEffect(() => {
+        getUserFromDataBase();
          
-            GenerateOptions(getUserFromDataBase())
+        GenerateOptions(getUserFromDataBase())
   
     }, []);
 

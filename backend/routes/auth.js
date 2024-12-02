@@ -132,9 +132,10 @@ router.get('/users/:name', async (req, res) => {
     }
 });
 
-router.get('/users/:id', async (req, res) => {
+router.get('/users/id/:id', async (req, res) => {
     try {
         const { id } = req.params; // Extract user ID from request parameters
+        console.log(id);
         const user = await User.findById(id); // Find user by ID
 
         if (!user) { // If user is not found
