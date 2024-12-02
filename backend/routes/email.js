@@ -40,7 +40,7 @@ router.post('/send-email', (req, res) => {
     from: process.env.GMAIL_USER,
     to: user.email,
     subject: `Order Confirmation for ${user.displayName}`,
-    text: `Hello ${user.displayName},\n\nThank you for your order!\n\nItems:\n${itemsText}\n\nTotal: $${totalAmount}\n\nShipping Address: ${user.shippingAddress}\n\nWe will process your order shortly.`
+    text: `Hello ${user.displayName},\n\nThank you for your order!\n\nItems:\n${itemsText}\n\nTotal: $${totalAmount}\n\nShipping Address: ${user.shippingAddress}\n\n Postal Code: ${user.postalCode}\n\n Country: ${user.country}\n\n City: ${user.city}\n\n We will process your order shortly.`
   };
 
   // Prepare the email content for the admin (notification)
@@ -48,7 +48,7 @@ router.post('/send-email', (req, res) => {
     from: user.email,
     to: process.env.GMAIL_USER, // Your email
     subject: `New Order from ${user.displayName}`,
-    text: `New order from ${user.displayName} (${user.email})\n\nItems:\n${itemsText}\n\nTotal: $${totalAmount}\n\nShipping Address: ${user.shippingAddress}\n\nPlease review and process the order.`
+    text: `New order from ${user.displayName} (${user.email})\n\nItems:\n${itemsText}\n\nTotal: $${totalAmount}\n\nShipping Address: ${user.shippingAddress}\n\n Postal Code: ${user.postalCode}\n\n Country: ${user.country}\n\n City: ${user.city}\n\n Please review and process the order.`
   };
 
   // Send the user's order confirmation email
