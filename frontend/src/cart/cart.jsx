@@ -53,7 +53,7 @@ const Cart = () => {
        user.history.push(item[i]);
     }
 
-    const response = await fetch(`https://shop3dprints.onrender.com/api/users/${user.email}`, {
+    const response = await fetch(`https://shop3dprints.onrender.com/users/${user.email}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
