@@ -46,6 +46,33 @@ const Cart = () => {
     updateItem(productId, value, color); // Persist the change in storage (adjust this function to handle color)
   };
 
+  const updateUserInfo = async (item, user) => {
+    try {
+    for (let i = 0; i < item.length; i++)
+    {
+       user.history.push(item[i]);
+    }
+
+    const response = await fetch(`https://shop3dprints.onrender.com/api/users/${user.email}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+      },
+      body: JSON.stringify({ history: user.history }),
+    });
+
+    if (response.ok) {
+      console.log('User history updated successfully');
+    } else {
+      console.error('Failed to update user history');
+    }
+  } catch (error) {
+    console.error('Error updating user info:', error);
+  }
+  
+  }
+
   const HandleCheckOut = async (items) => {
     const usersName = localStorage.getItem("userName");
 
@@ -90,6 +117,7 @@ const Cart = () => {
         if (emailResponse.ok) {
           alert("Order confirmation email sent! See email for details");
           ClearCart();
+          updateUserInfo(items, userData);
           navigate("/");
 
         } else {

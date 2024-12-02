@@ -90,6 +90,31 @@ router.post("/login", async (req, res) => {
     
 });
 
+
+router.put('/api/users/:email', async (req, res) => {
+    try {
+      const { email } = req.params;
+      const { history } = req.body;
+  
+      const updatedUser = await User.findOneAndUpdate(
+        { email },
+        { $set: { history } },
+        { new: true } // Returns the updated document
+      );
+  
+      if (updatedUser) {
+        res.json(updatedUser);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+
+  
+
 router.get('/users/:name', async (req, res) => {
     try {
         const { name } = req.params;
