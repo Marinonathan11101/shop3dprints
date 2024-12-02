@@ -91,7 +91,7 @@ router.post("/login", async (req, res) => {
 });
 
 
-router.put('/api/users/:email', async (req, res) => {
+router.put('/users/:email', async (req, res) => {
     try {
       const { email } = req.params;
       const { history } = req.body;
@@ -113,7 +113,7 @@ router.put('/api/users/:email', async (req, res) => {
     }
   });
 
-  
+
 
 router.get('/users/:name', async (req, res) => {
     try {
