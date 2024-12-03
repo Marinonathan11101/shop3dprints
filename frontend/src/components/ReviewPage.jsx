@@ -17,13 +17,25 @@ const ReviewPage = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0]; // Get the first file (image) selected by the user
     if (file) {
-      // Check if the file is an image (optional validation)
       if (file.type.startsWith("image/")) {
-        setImage(URL.createObjectURL(file)); // Create an object URL to preview the image
+        setImage(file); // Store the file object
       } else {
         alert("Error uploading image");
       }
     }
+  };
+
+  const handleFileUpload = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const response = await fetch('https://shop3dprints.onrender.com/upload', {
+      method: 'POST',
+      body: formData
+    });
+
+    const data = await response.json();
+    return data.filePath; // Assume the server returns the uploaded file's path
   };
 
   const decreaseValue = () => {
@@ -40,31 +52,39 @@ const ReviewPage = () => {
 
   const HandleReviewPageSubmit = async (e) => {
     e.preventDefault();
-    const reviewInfo = {user, reviewMessage, image, stars, productName}; // Pass all this info to the backend
+
+    let uploadedImagePath = null;
+    if (image) {
+      uploadedImagePath = await handleFileUpload(image); // Upload the image and get its path
+    }
+
+    const data = await response.json();
+
+    const reviewInfo = { user, reviewMessage, image: uploadedImagePath, stars, productName }; // Pass all this info to the backend
 
     try {
       const response = await fetch('https://shop3dprints.onrender.com/review/postReview', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(reviewInfo), // Send email and password to backend
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reviewInfo), // Send email and password to backend
       });
 
-      const data = await response.json();
+
 
       if (response.ok) {
         navigate("/");
         alert("Added review");
-        
-          // You can redirect the user to another page or update the UI state
+
+        // You can redirect the user to another page or update the UI state
       } else {
-          alert(data.message);
+        alert(data.message);
       }
-  } catch (err) {
+    } catch (err) {
       console.error(err);
       alert('Server error');
-  }
+    }
 
   }
 
@@ -154,7 +174,7 @@ const ReviewPage = () => {
             onSubmit={(HandleReviewPageSubmit)}
           >
             <label htmlFor="dropdown">Choose an option:</label>
-            <select id="dropdown" ref={selectRef}  onChange={(e) => setProductName(e.target.value)}></select>
+            <select id="dropdown" ref={selectRef} onChange={(e) => setProductName(e.target.value)}></select>
 
             <textarea
               id="reviewMessage"
