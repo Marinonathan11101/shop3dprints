@@ -25,6 +25,28 @@ const ReviewPage = () => {
     }
   };
 
+  const  UpdateUserReviewsArray = async (userReviews) => {
+    try {
+    
+      const response = await fetch(`https://shop3dprints.onrender.com/api/users/updateReview${user.email}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+        },
+        body: JSON.stringify({ reviews: userReviews }),
+      });
+  
+      if (response.ok) {
+        console.log('User reviews updated successfully');
+      } else {
+        console.error('Failed to update user reviews');
+      }
+    } catch (error) {
+      console.error('Error updating user info:', error);
+    }
+  }
+
   const handleFileUpload = async (file) => {
     const formData = new FormData();
     formData.append("image", file);
@@ -65,6 +87,15 @@ const ReviewPage = () => {
 
     const reviewInfo = { user, reviewMessage, image: uploadedImagePath, stars, productName }; // Pass all this info to the backend
 
+    const userReviews = user.reviews;
+
+    for (let i = 0; i < userReviews.length; i++ ){
+        if (productName === userReviews[i].productName)
+        {
+          alert("You already left a review for this product.");
+        }
+    }
+
     console.log(reviewMessage, productName, uploadedImagePath, stars);
 
     try {
@@ -80,6 +111,9 @@ const ReviewPage = () => {
 
       if (response.ok) {
         navigate("/");
+        userReviews.push(data);
+
+        UpdateUserReviewsArray(userReviews);
         alert("Added review");
 
         // You can redirect the user to another page or update the UI state
@@ -163,7 +197,15 @@ const ReviewPage = () => {
       console.log("useEffect called");
 
       const userData = await getUserFromDataBase();
-      setProductName(userData.history[0].name);
+
+      if (userData && userData.history && userData.history[0]) {
+        setProductName(userData.history[0].name);
+    }
+
+      else{
+        alert("User has no history");
+      }
+   
       if (userData && userData.history && selectRef.current) {
         GenerateOptions(userData.history, selectRef.current); // Pass selectRef.current to GenerateOptions
       }

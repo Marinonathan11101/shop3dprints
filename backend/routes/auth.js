@@ -115,6 +115,29 @@ router.put('/users/:email', async (req, res) => {
   });
 
 
+router.put('/users/updateReview/:email', async (req, res) => {
+    try {
+      const { email } = req.params;
+      const { reviews } = req.body;
+  
+      const updatedUser = await User.findOneAndUpdate(
+        { email },
+        { $set: { reviews } },
+        { new: true } // Returns the updated document
+      );
+  
+      if (updatedUser) {
+        res.json(updatedUser);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+
+
 
 router.get('/users/:name', async (req, res) => {
     try {
@@ -148,6 +171,9 @@ router.get('/users/id/:id', async (req, res) => {
         res.status(500).json({ message: "Server error" }); // Send error response
     }
 });
+
+
+
 
 module.exports = router;
 
