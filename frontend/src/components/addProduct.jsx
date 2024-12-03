@@ -111,7 +111,7 @@ const AddProductForm = () => {
                     <div>
                         <label>Colors:</label>
                         <div className="color-options">
-                            {["Red", "Blue", "Black", "White", "Orange", "Pink", "Yellow", "Green", "Brown", "Other"].map((colors) => (
+                            {["Red", "Blue", "Black", "White", "Orange", "Yellow", "Green", "Brown", "Gold", "Silver", "Grey", "Other"].map((colors) => (
                                 <label key={colors}>
                                     <input
                                         type="checkbox"

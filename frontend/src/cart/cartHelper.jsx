@@ -28,6 +28,10 @@ export const addItem = (item, color, next) => {
         cart = Array.from(new Set(cart.map(p => `${p._id}-${p.color}`)))
             .map(id => cart.find(p => `${p._id}-${p.color}` === id));
 
+            // ["123-red", "123-red", "456-blue"]
+            //   cart = Array.from(new Set(cart.map(p => `${p._id}-${p.color}`))) => ["123-red", "456-blue"]
+            // .map(id => cart.find(p => `${p._id}-${p.color}` === id));
+                
         // Save the updated cart back to localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
         console.log(cart);

@@ -18,7 +18,7 @@ function EditProduct() {
 
     const availableColors = [
         'Red', 'Blue', 'Black', 'White', 'Orange', 
-        'Pink', 'Yellow', 'Green', 'Brown', 'Other'
+        'Yellow', 'Green', 'Brown', 'Gold', 'Silver', 'Grey', 'Other'
     ];
 
     const handleColorChange = (e) => {
