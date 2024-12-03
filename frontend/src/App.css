@@ -2017,7 +2017,7 @@ footer {
 }
 
 .itemsGrid {
-
+  overflow: scroll;
   background-color: #73caea;
   padding: 2em;
   border: black 3px solid;

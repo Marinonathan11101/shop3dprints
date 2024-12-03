@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth'); // Import the auth routes\
 const adminRoutes = require('./routes/adminRoutes')
 const productRoutes = require("./routes/productRoutes")
 const emailRoute = require("./routes/email");
+const reviewRoute = require("./routes/reviewRoute");
 
 const app = express(); // app is an instance of the Express server.
 app.use(express.json()); // app.use(express.json()) allows the server to parse incoming JSON data.
@@ -41,6 +42,8 @@ app.use('/admin', adminRoutes);
 app.use('/products', productRoutes);
 
 app.use("/api", emailRoute);
+
+app.use("/review", reviewRoute);
 
 app.use("/api", authRoutes); // Middleware: app.use() is a method in Express used to register middleware. Middleware is any function that runs when a request is received, and it can modify the request, respond to it, or pass it along to the next middleware or route handler.
 // This means that any route defined in authRoutes will be "mounted" under "/api"

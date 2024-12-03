@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     history: {
         type: Array,
         default: []
+    },
+    reviews: {
+        type:Array,
+        default:[]
     }
 
     

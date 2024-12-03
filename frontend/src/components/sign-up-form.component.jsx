@@ -172,6 +172,7 @@ const SignInForm = () => {
                                 onChange={(e) => setDisplayName(e.target.value)} // Bind displayName state
                                 required
                             />
+                            
                         </div>
 
                         <div>
