@@ -4,8 +4,6 @@ const Review = require('../models/Product');
 const router = express.Router();
 
 
-
-
 router.post("/postReview", async (req, res) =>{
     const {user, message, image, stars, productName} = req.body;
 
@@ -31,3 +29,5 @@ router.post("/postReview", async (req, res) =>{
         });
     }
 });
+
+module.exports = router;
