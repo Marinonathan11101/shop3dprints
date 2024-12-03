@@ -11,7 +11,7 @@ const ReviewPage = () => {
   const [image, setImage] = useState(null);
   const [stars, setStars] = useState(1); // Default to 1 star to avoid null
   const [user, setUser] = useState(null);
-  const [productName, setProductName] = useState(null);
+  const [productName, setProductName] = useState("");
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -58,11 +58,14 @@ const ReviewPage = () => {
       uploadedImagePath = await handleFileUpload(image); // Upload the image and get its path
     }
 
-    
+    if (uploadedImagePath === null){
+      uploadedImagePath = "";
+    }
+
 
     const reviewInfo = { user, reviewMessage, image: uploadedImagePath, stars, productName }; // Pass all this info to the backend
 
-    console.log(reviewMessage, productName, uploadedImagePath);
+    console.log(reviewMessage, productName, uploadedImagePath, stars);
 
     try {
       const response = await fetch('https://shop3dprints.onrender.com/review/postReview', {
@@ -73,10 +76,7 @@ const ReviewPage = () => {
         body: JSON.stringify(reviewInfo), // Send email and password to backend
       });
       
-      
       const data = await response.json();
-
-
 
       if (response.ok) {
         navigate("/");
@@ -163,6 +163,7 @@ const ReviewPage = () => {
       console.log("useEffect called");
 
       const userData = await getUserFromDataBase();
+      setProductName(userData.history[0].name);
       if (userData && userData.history && selectRef.current) {
         GenerateOptions(userData.history, selectRef.current); // Pass selectRef.current to GenerateOptions
       }
