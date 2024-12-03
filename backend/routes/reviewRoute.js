@@ -5,12 +5,12 @@ const router = express.Router();
 
 
 router.post("/postReview", async (req, res) =>{
-    const {user, message, image, stars, productName} = req.body;
+    const {user, reviewMessage, image, stars, productName} = req.body;
 
     try {
         const newReview = new Review({
           user,
-          message,
+          reviewMessage,
           image,
           stars,
           productName

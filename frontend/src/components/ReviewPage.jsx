@@ -58,9 +58,11 @@ const ReviewPage = () => {
       uploadedImagePath = await handleFileUpload(image); // Upload the image and get its path
     }
 
-    const data = await response.json();
+    
 
     const reviewInfo = { user, reviewMessage, image: uploadedImagePath, stars, productName }; // Pass all this info to the backend
+
+    console.log(reviewMessage, productName, uploadedImagePath);
 
     try {
       const response = await fetch('https://shop3dprints.onrender.com/review/postReview', {
@@ -70,6 +72,9 @@ const ReviewPage = () => {
         },
         body: JSON.stringify(reviewInfo), // Send email and password to backend
       });
+      
+      
+      const data = await response.json();
 
 
 
