@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const User = require('./User.js');
+
 
 const reviewSchema = new mongoose.Schema({
 
     user: {
-        type: User,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Refers to the User model
         required: true
     },
 
