@@ -1,5 +1,4 @@
 
-
 const express = require('express'); // Express: A web application framework for setting up routes and handling HTTP requests.
 const mongoose = require('mongoose'); // Mongoose: An ODM (Object Data Modeling) library for MongoDB, allowing you to define schemas and models for data
 const cors = require('cors'); // A middleware for handling Cross-Origin Resource Sharing, enabling the server to accept requests from different origins (e.g., from a frontend app on another port).
@@ -9,6 +8,7 @@ const productRoutes = require("./routes/productRoutes")
 const emailRoute = require("./routes/email");
 const reviewRoute = require("./routes/reviewRoute");
 const uploadRouter = require('./routes/uploadRouter'); 
+const path = require('path');
 
 const app = express(); // app is an instance of the Express server.
 app.use(express.json()); // app.use(express.json()) allows the server to parse incoming JSON data.
