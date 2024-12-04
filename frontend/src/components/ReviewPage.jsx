@@ -28,7 +28,7 @@ const ReviewPage = () => {
   const  UpdateUserReviewsArray = async (userReviews) => {
     try {
     
-      const response = await fetch(`https://shop3dprints.onrender.com/api/users/updateReview${user.email}`, {
+      const response = await fetch(`https://shop3dprints.onrender.com/api/users/updateReview/${user.email}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

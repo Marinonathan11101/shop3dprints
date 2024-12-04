@@ -19,7 +19,6 @@ router.post("/postReview", async (req, res) =>{
         await newReview.save();
 
         res.status(201).json({
-            message: 'Review added successfully',
             review: newReview
         });
     } catch (error) {
