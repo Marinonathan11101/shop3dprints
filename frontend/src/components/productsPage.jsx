@@ -35,6 +35,8 @@ const ProductsPage = () => {
                     <p>${product.price} CAD</p>
                     <h3>Description</h3>
                     <p>{product.description}</p>
+                    <h3>Dimensions</h3>
+                    <p>{product.dimensions}</p>
 
                     <div className="product-rating">
                         <div className="stars">
@@ -61,6 +63,8 @@ const ProductsPage = () => {
                             ))}
                         </div>
                     </div>
+
+        
 
                     <div className="AddToCartButtonContainer"> 
                         <button onClick={() => addItem(product, selectedColor, () => console.log("item added to cart"))}>ADD TO CART</button>

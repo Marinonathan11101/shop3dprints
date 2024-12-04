@@ -9,13 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import ProductsPage from "../../components/productsPage.jsx"
 import { AddLike } from '../../components/likesHelper.jsx';
 import OurColors from "../../images/ourColors.png"
-
+import Review from '../../components/review.jsx';
 
 
 function Home({ isAdmin }) {
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
+    const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
     const productsSectionRef = useRef(null);
@@ -49,7 +50,26 @@ function Home({ isAdmin }) {
             }
         };
 
+
+        const fetchReviews = async () => {
+            try {
+                const response = await fetch('https://shop3dprints.onrender.com/review/reviews');
+                if (response.ok) {
+                    const data = await response.json();
+                    setReviews(data);  
+                    console.log(data);
+                } else {
+                    console.error('Failed to fetch Reviews');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            } finally {
+                setLoading(false);  
+            }
+        };
+
         fetchProducts();
+        fetchReviews();
 
     }, []);  // Empty dependency array ensures it runs only once
 
@@ -145,7 +165,7 @@ function Home({ isAdmin }) {
 
                 </div>
                 <div className='OurServiceText'>
-                    <h2>MATTEOS 3D PRINTING ONLINE STORE</h2>
+                    <h2>MATTEO'S 3D PRINTING ONLINE STORE</h2>
                     <p>Ever since 2022, Shop 3D Prints is a Canadian 3D printing business conducted by Matteo Sforza where you could buy desired 3D prints!</p>
                     <button onClick={scrollToProducts}>VIEW PRODUCTS</button>
                 </div>
@@ -260,6 +280,16 @@ function Home({ isAdmin }) {
                         ))
                     )}
                 </div>
+            </section>
+
+            <section className='ReviewsSection'>
+                   {reviews.map((review) => {
+
+                        <div className='Reviews'>
+                            <Review review={review}></Review>
+
+                        </div>
+                   })}
             </section>
 
             <Footer />

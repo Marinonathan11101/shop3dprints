@@ -10,8 +10,8 @@ const AddProductForm = () => {
     const [productImageUrl, setProductImageUrl] = useState('');
     const [productCategory, setCategory] = useState('coaster');  // Default category
     const [productMedia, setMedia] = useState('Marvel');
-    const [productColors, setProductColors] = useState([]); 
-    const [productDimensions, setDimensions] = useState('Marvel');
+    const [productColors, setProductColors] = useState([]);
+    const [productDimensions, setDimensions] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();

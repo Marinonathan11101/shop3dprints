@@ -144,7 +144,7 @@ const Cart = () => {
         <h2>REVIEW YOUR ORDER</h2>
         <div className="GridContainer">
           <div className="itemsGrid">
-            <h2>ITEMS</h2>
+            <h2>ITEMS (scroll here to view cart)</h2>
             <ul>
               {items.map((item, index) => (
                 <li key={index}>
