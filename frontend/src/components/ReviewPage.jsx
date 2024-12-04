@@ -57,7 +57,7 @@ const ReviewPage = () => {
     });
 
     const data = await response.json();
-    return data.filePath; // Assume the server returns the uploaded file's path
+    return data.image; // Assume the server returns the uploaded file's path
   };
 
   const decreaseValue = () => {

@@ -3,6 +3,7 @@ import React from "react";
 const Review = ({ review }) => {
 
     console.log(review.image);
+    console.log(review.user.displayName);
     return (
         <div>
             <div className="review-item">
@@ -21,7 +22,7 @@ const Review = ({ review }) => {
 
                 
                 <div className="reviewImage">
-                <img src={`https://shop3dprints.onrender.com/uploads/1733277808525-50011106.jpg`} alt="Review" />
+                <img src={`https://shop3dprints.onrender.com/uploads/${review.image}`} alt="Review" />
                 </div>
 
                 <div className="reviewMessage">

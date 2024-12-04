@@ -32,7 +32,8 @@ router.post("/postReview", async (req, res) =>{
 
 router.get("/reviews", async (req, res) => {
     try {
-        const reviews = await Review.find();
+        const reviews = await Review.find()
+        .populate('user', 'displayName');
         res.status(200).json(reviews);
     } catch (error) {
         console.error('Error fetching reviews:', error);
