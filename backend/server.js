@@ -52,7 +52,7 @@ app.use("/api", authRoutes); // Middleware: app.use() is a method in Express use
 // This means that any route defined in authRoutes will be "mounted" under "/api"
 
 // Serve static files from the "uploads" directory
-app.use('/uploads', express.static(path.join(__dirname, 'routes/uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.listen(5000, () => {
     console.log('Server running on port 5000');

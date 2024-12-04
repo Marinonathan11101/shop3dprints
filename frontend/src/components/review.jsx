@@ -21,7 +21,7 @@ const Review = ({ review }) => {
 
                 
                 <div className="reviewImage">
-                <img src={`https://shop3dprints.onrender.com/uploads/${review.image}`} alt="Review" />
+                <img src={`https://shop3dprints.onrender.com/uploads/1733277808525-50011106.jpg`} alt="Review" />
                 </div>
 
                 <div className="reviewMessage">
