@@ -51,6 +51,9 @@ app.use('/upload', uploadRouter);
 app.use("/api", authRoutes); // Middleware: app.use() is a method in Express used to register middleware. Middleware is any function that runs when a request is received, and it can modify the request, respond to it, or pass it along to the next middleware or route handler.
 // This means that any route defined in authRoutes will be "mounted" under "/api"
 
+// Serve static files from the "uploads" directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.listen(5000, () => {
     console.log('Server running on port 5000');
 });

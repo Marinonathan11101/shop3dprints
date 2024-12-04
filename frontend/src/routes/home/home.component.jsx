@@ -56,7 +56,7 @@ function Home({ isAdmin }) {
                 const response = await fetch('https://shop3dprints.onrender.com/review/reviews');
                 if (response.ok) {
                     const data = await response.json();
-                    setReviews(data);  
+                    setReviews(data);
                     console.log(data);
                 } else {
                     console.error('Failed to fetch Reviews');
@@ -64,7 +64,7 @@ function Home({ isAdmin }) {
             } catch (error) {
                 console.error('Error:', error);
             } finally {
-                setLoading(false);  
+                setLoading(false);
             }
         };
 
@@ -282,14 +282,13 @@ function Home({ isAdmin }) {
                 </div>
             </section>
 
+            
             <section className='ReviewsSection'>
-                   {reviews.map((review) => {
-
-                        <div className='Reviews'>
-                            <Review review={review}></Review>
-
-                        </div>
-                   })}
+                {reviews.map((review) => (
+                    <div className='Reviews' key={review._id}>
+                        <Review review={review}></Review>
+                    </div>
+                ))}
             </section>
 
             <Footer />
