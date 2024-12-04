@@ -7,8 +7,10 @@ const router = express.Router();
 
 // Check if the uploads directory exists, if not, create it
 const uploadDir = path.join(__dirname, 'uploads');
+console.log('Uploads Directory:', uploadDir); // Log the path to debug
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true }); // Create the directory if it doesn't exist
+    console.log('Uploads directory created successfully!');
 }
 
 // Configure Multer storage
