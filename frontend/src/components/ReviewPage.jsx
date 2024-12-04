@@ -88,11 +88,16 @@ const ReviewPage = () => {
     const reviewInfo = { user, reviewMessage, image: uploadedImagePath, stars, productName }; // Pass all this info to the backend
 
     const userReviews = user.reviews;
+    console.log(userReviews);
 
     for (let i = 0; i < userReviews.length; i++ ){
-        if (productName === userReviews[i].productName)
+      console.log(userReviews[i].review.productName);
+
+        if (productName === userReviews[i].review.productName)
         {
+         
           alert("You already left a review for this product.");
+          return;
         }
     }
 
@@ -204,6 +209,7 @@ const ReviewPage = () => {
 
       else{
         alert("User has no history");
+        navigate("/");
       }
    
       if (userData && userData.history && selectRef.current) {
@@ -215,8 +221,9 @@ const ReviewPage = () => {
 
   return (
     <div className="PageContainer">
-      <div className="ReviewPageContainer">
         <Nav />
+      <div className="ReviewPageContainer">
+      
         <div className="reviewFormContainer">
           <form
             onSubmit={(HandleReviewPageSubmit)}

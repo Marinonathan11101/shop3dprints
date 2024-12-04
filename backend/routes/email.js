@@ -32,7 +32,7 @@ router.post('/send-email', (req, res) => {
   }
 
   // Format the items list as a string for the email
-  const itemsText = items.map(item => `${item.name} - Quantity: ${item.count || 1} - Price: $${item.price * (item.count || 1)} - Color: ${item.color}`).join('\n');
+  const itemsText = items.map(item => `${item.name} - Quantity: ${item.count || 1} - Price: $${item.price * (item.count || 1)} - Color: ${item.color} - Dimensions: ${item.dimensions}`).join('\n');
   const totalAmount = items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
 
   // Prepare the email content for the user (order confirmation)

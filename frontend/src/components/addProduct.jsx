@@ -11,6 +11,7 @@ const AddProductForm = () => {
     const [productCategory, setCategory] = useState('coaster');  // Default category
     const [productMedia, setMedia] = useState('Marvel');
     const [productColors, setProductColors] = useState([]); 
+    const [productDimensions, setDimensions] = useState('Marvel');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +22,8 @@ const AddProductForm = () => {
             price: productPrice,
             category: productCategory,
             media: productMedia,
-            colors: productColors
+            colors: productColors,
+            dimensions: productDimensions
         };
 
         try {
@@ -129,6 +131,16 @@ const AddProductForm = () => {
                                 </label>
                             ))}
                         </div>
+                    </div>
+
+                    <div>
+                        <label>Dimensions:</label>
+                        <input
+                            type="text"
+                            value={productDimensions}
+                            onChange={(e) => setDimensions(e.target.value)}
+                            required
+                        />
                     </div>
                     <button type="submit">Add Product</button>
                 </form>

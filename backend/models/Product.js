@@ -38,6 +38,11 @@ const productSchema = new mongoose.Schema({
         type: [String],
         enum: ["Red", "Blue", "Black", "White", "Orange", "Yellow", "Green", "Brown", "Gold", "Silver", "Grey", "Other"]
 
+    },
+
+    dimensions:{
+        type: String,
+        required:true
     }
 
     

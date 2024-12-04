@@ -42,7 +42,7 @@ router.get('/names', async (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
-    const { name, description, imageURL, price, category, media, color } = req.body;
+    const { name, description, imageURL, price, category, media, color, dimensions } = req.body;
 
     console.log(req.body.imageURL);
 
@@ -54,7 +54,9 @@ router.post("/add", async (req, res) => {
             price,
             category,
             media,
-            color
+            color,
+            dimensions
+
         });
 
         await newProduct.save();

@@ -13,7 +13,8 @@ function EditProduct() {
         imageUrl: '',
         colors: [],
         category: '',
-        media: ''
+        media: '',
+        dimensions: ''
     });
 
     const availableColors = [
@@ -157,6 +158,18 @@ function EditProduct() {
                         <option value="keychain">Keychain</option>
                         <option value="other">Other</option>
                     </select>
+
+                    <label>
+                        Dimensions:
+                        <input
+                            type="text"
+                            name="dimensions"
+                            value={product.dimensions}
+                            onChange={handleInputChange}
+                        />
+                    </label>
+
+
                     <button type="submit">Save Changes</button>
                 </form>
                 <Footer />
