@@ -5,12 +5,13 @@ import Nav from '../routes/nav/nav.component';
 import "../App.css";
 
 function EditProduct() {
-    const { id } = useParams();  // Get the product ID from the URL
+    const { id } = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState({
         name: '',
         price: '',
-        imageUrl: '',
+        description: '',
+        imageURLs: [], // Changed from `imageUrl` to `imageURLs`
         colors: [],
         category: '',
         media: '',
@@ -18,7 +19,7 @@ function EditProduct() {
     });
 
     const availableColors = [
-        'Red', 'Blue', 'Black', 'White', 'Orange', 
+        'Red', 'Blue', 'Black', 'White', 'Orange',
         'Yellow', 'Green', 'Brown', 'Gold', 'Silver', 'Grey', 'Other'
     ];
 
@@ -27,25 +28,24 @@ function EditProduct() {
 
         setProduct((prevProduct) => {
             const updatedColors = checked
-                ? [...prevProduct.colors, value] // Add color
-                : prevProduct.colors.filter((color) => color !== value); // Remove color
+                ? [...prevProduct.colors, value]
+                : prevProduct.colors.filter((color) => color !== value);
             return { ...prevProduct, colors: updatedColors };
         });
     };
 
     const [loading, setLoading] = useState(true);
 
-    // Fetch the product by its ID
     useEffect(() => {
         const fetchProduct = async () => {
             try {
                 const response = await fetch(`https://shop3dprints.onrender.com/products/${id}`, {
-                    method: 'GET', 
+                    method: 'GET',
                 });
-          
+
                 if (response.ok) {
                     const data = await response.json();
-                    setProduct({ ...data, colors: data.colors || [] }); // Ensure colors is an array
+                    setProduct({ ...data, colors: data.colors || [] });
                 } else {
                     console.error('Failed to fetch product');
                 }
@@ -67,6 +67,28 @@ function EditProduct() {
         }));
     };
 
+    const handleImageChange = (index, value) => {
+        setProduct((prevProduct) => {
+            const updatedImages = [...prevProduct.imageURLs];
+            updatedImages[index] = value;
+            return { ...prevProduct, imageURLs: updatedImages };
+        });
+    };
+
+    const handleAddImage = () => {
+        setProduct((prevProduct) => ({
+            ...prevProduct,
+            imageURLs: [...prevProduct.imageURLs, ''], // Add an empty string for a new image URL
+        }));
+    };
+
+    const handleRemoveImage = (index) => {
+        setProduct((prevProduct) => {
+            const updatedImages = prevProduct.imageURLs.filter((_, i) => i !== index);
+            return { ...prevProduct, imageURLs: updatedImages };
+        });
+    };
+
     const handleSaveEdit = async () => {
         try {
             const response = await fetch(`https://shop3dprints.onrender.com/products/${id}/update`, {
@@ -74,11 +96,11 @@ function EditProduct() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(product),  // Send updated product data
+                body: JSON.stringify(product),
             });
 
             if (response.ok) {
-                navigate('/');  // Redirect to the Home page after successful update
+                navigate('/');
             } else {
                 console.error('Failed to update product');
             }
@@ -106,6 +128,7 @@ function EditProduct() {
                             onChange={handleInputChange}
                         />
                     </label>
+
                     <label>
                         Price:
                         <input
@@ -116,13 +139,27 @@ function EditProduct() {
                         />
                     </label>
                     <label>
-                        Image URL:
+                        Description:
                         <input
                             type="text"
-                            name="imageUrl"
-                            value={product.imageUrl}
+                            name="description"
+                            value={product.description}
                             onChange={handleInputChange}
                         />
+                    </label>
+                    <label>
+                        Image URLs:
+                        {product.imageURLs.map((url, index) => (
+                            <div key={index}>
+                                <input
+                                    type="text"
+                                    value={url}
+                                    onChange={(e) => handleImageChange(index, e.target.value)}
+                                />
+                                <button type="button" onClick={() => handleRemoveImage(index)}>Remove</button>
+                            </div>
+                        ))}
+                        <button type="button" onClick={handleAddImage}>Add Image</button>
                     </label>
                     <label>
                         Colors:
@@ -132,7 +169,7 @@ function EditProduct() {
                                     <input
                                         type="checkbox"
                                         value={color}
-                                        checked={product.colors.includes(color)} 
+                                        checked={product.colors.includes(color)}
                                         onChange={handleColorChange}
                                     />
                                     {color}
@@ -168,7 +205,6 @@ function EditProduct() {
                             onChange={handleInputChange}
                         />
                     </label>
-
 
                     <button type="submit">Save Changes</button>
                 </form>

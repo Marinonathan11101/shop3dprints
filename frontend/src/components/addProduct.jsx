@@ -1,24 +1,32 @@
 import { useState } from 'react';
-import Nav from "../routes/nav/nav.component"
-import Footer from "./footer"
+import Nav from "../routes/nav/nav.component";
+import Footer from "./footer";
 import "../App.css";
 
 const AddProductForm = () => {
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('');
     const [productPrice, setProductPrice] = useState('');
-    const [productImageUrl, setProductImageUrl] = useState('');
-    const [productCategory, setCategory] = useState('coaster');  // Default category
+    const [productImageUrls, setProductImageUrls] = useState([]); // Changed to an array for multiple images
+    const [imageInput, setImageInput] = useState(''); // For single image input field
+    const [productCategory, setCategory] = useState('coaster');
     const [productMedia, setMedia] = useState('Marvel');
     const [productColors, setProductColors] = useState([]);
     const [productDimensions, setDimensions] = useState('');
+
+    const handleAddImage = () => {
+        if (imageInput.trim()) {
+            setProductImageUrls([...productImageUrls, imageInput.trim()]);
+            setImageInput(''); // Clear the input field after adding
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const productData = {
             name: productName,
             description: productDescription,
-            imageURL: productImageUrl,
+            imageURLs: productImageUrls, // Send the array of image URLs
             price: productPrice,
             category: productCategory,
             media: productMedia,
@@ -81,13 +89,21 @@ const AddProductForm = () => {
                         />
                     </div>
                     <div>
-                        <label>Image URL:</label>
+                        <label>Image URLs:</label>
                         <input
                             type="text"
-                            value={productImageUrl}
-                            onChange={(e) => setProductImageUrl(e.target.value)}
-                            required
+                            value={imageInput}
+                            onChange={(e) => setImageInput(e.target.value)}
                         />
+                        <button type="button" onClick={handleAddImage}>Add Image</button>
+                        <div>
+                            <h4>Added Images:</h4>
+                            <ul>
+                                {productImageUrls.map((url, index) => (
+                                    <li key={index}>{url}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                     <div>
                         <label>Category:</label>
@@ -107,7 +123,6 @@ const AddProductForm = () => {
                             <option value="Food">Food</option>
                             <option value="Pokemon">Pokemon</option>
                             <option value="Other">Other</option>
-
                         </select>
                     </div>
                     <div>
@@ -121,9 +136,9 @@ const AddProductForm = () => {
                                         checked={productColors.includes(colors)}
                                         onChange={(e) => {
                                             if (e.target.checked) {
-                                                setProductColors([...productColors, colors]); // Add color
+                                                setProductColors([...productColors, colors]);
                                             } else {
-                                                setProductColors(productColors.filter((c) => c !== colors)); // Remove color
+                                                setProductColors(productColors.filter((c) => c !== colors));
                                             }
                                         }}
                                     />
@@ -132,7 +147,6 @@ const AddProductForm = () => {
                             ))}
                         </div>
                     </div>
-
                     <div>
                         <label>Dimensions:</label>
                         <input
@@ -147,8 +161,6 @@ const AddProductForm = () => {
             </div>
             <Footer />
         </body>
-
-
     );
 };
 

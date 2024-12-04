@@ -282,13 +282,15 @@ function Home({ isAdmin }) {
                 </div>
             </section>
 
-            
-            <section className='ReviewsSection'>
-                {reviews.map((review) => (
-                    <div className='Reviews' key={review._id}>
-                        <Review review={review}></Review>
-                    </div>
-                ))}
+
+            <section className="ReviewsSection">
+                <h2>REVIEWS</h2>
+
+                <div className="Reviews">
+                    {reviews.map((review) => (
+                        <Review key={review._id} review={review} />
+                    ))}
+                </div>
             </section>
 
             <Footer />

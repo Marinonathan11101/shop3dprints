@@ -16,16 +16,18 @@ const Product = ({ product }) => {
                     </div>
                 </div>
 
-                <img src={product.imageURL} alt={product.name} />
-
-
+                {/* Display the first image from the imageURLs array */}
+                <img 
+                    src={product.imageURLs && product.imageURLs[0]} 
+                    alt={product.name} 
+                />
             </div>
 
             <div className="price">
                 <p>${product.price} CAD</p>
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
 export default Product;
