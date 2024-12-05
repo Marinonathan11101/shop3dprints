@@ -31,9 +31,6 @@ router.post('/', upload.single('image'), async (req, res) => {
             metadata: { contentType: req.file.mimetype },
         });
 
-        // Make the file publicly accessible
-        await file.makePublic();
-
         const publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
         res.status(200).json({ image: publicUrl });
     } catch (error) {
