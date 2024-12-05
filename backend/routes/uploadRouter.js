@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const bucket = require('./gcs'); // Import your Google Cloud Storage bucket configuration
+const bucket = require('../GoogleCloudConfig/gcs'); // Import your Google Cloud Storage bucket configuration
 
 const router = express.Router();
 
