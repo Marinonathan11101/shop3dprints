@@ -49,17 +49,16 @@ const ReviewPage = () => {
 
   const handleFileUpload = async (file) => {
     const formData = new FormData();
-    formData.append("image", file);
+    formData.append('image', file);
 
     const response = await fetch('https://shop3dprints.onrender.com/upload', {
-      method: 'POST',
-      body: formData
+        method: 'POST',
+        body: formData,
     });
 
     const data = await response.json();
-    return data.image; // Assume the server returns the uploaded file's path
-  };
-
+    return data.image; // Return the public URL of the uploaded image
+};
   const decreaseValue = () => {
     if (stars > 1) {  // Only decrease if it's greater than the min
       setStars(stars - 1);
