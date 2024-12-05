@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { useParams, useNavigate } from 'react-router-dom';
 import Footer from './footer';
 import Nav from '../routes/nav/nav.component';
@@ -11,7 +11,7 @@ function EditProduct() {
         name: '',
         price: '',
         description: '',
-        imageURLs: [], // Changed from `imageUrl` to `imageURLs`
+        imageURL: [], // Changed from `imageUrl` to `imageURLs`
         colors: [],
         category: '',
         media: '',
@@ -69,23 +69,23 @@ function EditProduct() {
 
     const handleImageChange = (index, value) => {
         setProduct((prevProduct) => {
-            const updatedImages = [...prevProduct.imageURLs];
+            const updatedImages = [...prevProduct.imageURL];
             updatedImages[index] = value;
-            return { ...prevProduct, imageURLs: updatedImages };
+            return { ...prevProduct, imageURL: updatedImages };
         });
     };
 
     const handleAddImage = () => {
         setProduct((prevProduct) => ({
             ...prevProduct,
-            imageURLs: [...prevProduct.imageURLs, ''], // Add an empty string for a new image URL
+            imageURL: [...prevProduct.imageURL, ''], // Add an empty string for a new image URL
         }));
     };
 
     const handleRemoveImage = (index) => {
         setProduct((prevProduct) => {
-            const updatedImages = prevProduct.imageURLs.filter((_, i) => i !== index);
-            return { ...prevProduct, imageURLs: updatedImages };
+            const updatedImages = prevProduct.imageURL.filter((_, i) => i !== index);
+            return { ...prevProduct, imageURL: updatedImages };
         });
     };
 
@@ -149,7 +149,7 @@ function EditProduct() {
                     </label>
                     <label>
                         Image URLs:
-                        {product.imageURLs.map((url, index) => (
+                        {product.imageURL.map((url, index) => (
                             <div key={index}>
                                 <input
                                     type="text"

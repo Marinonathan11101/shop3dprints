@@ -18,7 +18,7 @@ const Product = ({ product }) => {
 
                 {/* Display the first image from the imageURLs array */}
                 <img 
-                    src={product.imageURLs && product.imageURLs[0]} 
+                    src={product.imageURL && product.imageURL[0]} 
                     alt={product.name} 
                 />
             </div>

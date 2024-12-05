@@ -572,13 +572,10 @@ footer {
 }
 
 .ProductsPageImageContainer img {
-  border: solid 5px black;
-  border-radius: 25%;
-}
-
-.ProductsPageImageContainer img {
   width: 600px;
   height: 600px;
+  border: solid 5px black;
+  border-radius: 25%;
 }
 
 .ProductInfoContainer h2 {
@@ -1194,8 +1191,8 @@ footer {
   }
 
   .ProductsPageImageContainer img {
-    width: 300px !important;
-    height: 300px !important;
+    width: 300px; 
+    height: 300px;
  
     /* Keeps image aspect ratio intact */
   }
@@ -1290,6 +1287,12 @@ footer {
     left: 15em;
   }
 
+  .Otherimages img{
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+
 
   .Categories {
     flex-direction: column;
@@ -1299,6 +1302,11 @@ footer {
     /* Reset positioning */
     justify-content: center;
   }
+
+  .ProductsPageImageContainer{
+    flex-direction: column;
+  }
+
 
 }
 
@@ -1315,18 +1323,16 @@ footer {
   background-color: #73caea;
   margin-bottom: 5em;
   box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.3);
-  overflow-x: hidden; /* Prevent scrollbars from overlapping content */
+  overflow-x: hidden; 
 }
 
 .ReviewsSection h2{
   padding: 2em;
 }
 
-
-
 .Reviews {
   display: flex;
-  justify-content: flex-start; /* Align items to the left for a natural flow */
+  justify-content: flex-start; 
   align-items: center;
   gap: 2em;
   overflow-x: auto; /* Enable horizontal scrolling */
@@ -1353,3 +1359,14 @@ footer {
   box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 2em;
 }
+
+.Otherimages img{
+  width: 100px;
+  height: 100px;
+}
+
+.otherImagesContainer{
+  display: flex;
+  gap: 1em;
+}
+

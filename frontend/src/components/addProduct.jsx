@@ -26,7 +26,7 @@ const AddProductForm = () => {
         const productData = {
             name: productName,
             description: productDescription,
-            imageURLs: productImageUrls, // Send the array of image URLs
+            imageURL: productImageUrls, // Send the array of image URLs
             price: productPrice,
             category: productCategory,
             media: productMedia,
