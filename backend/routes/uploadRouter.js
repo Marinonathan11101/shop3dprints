@@ -40,7 +40,7 @@ const upload = multer({
 // Route to handle image upload
 router.post('/', upload.single('image'), (req, res) => {
     try {
-        const imageUrl = `${req.protocol}://${req.get('host')}/routes/uploads/${path.basename(req.file.path)}`;
+        const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${path.basename(req.file.path)}`;
         res.status(200).json({ image: imageUrl });
     } catch (err) {
         console.error(err);
