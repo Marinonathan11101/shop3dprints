@@ -7,23 +7,33 @@ import { addItem } from "../cart/cartHelper"
 const ProductsPage = () => {
     const location = useLocation();
     const { product } = location.state;
-    
+
     // State to manage the selected product image
     const [selectedProductImage, setSelectedProductImage] = useState(product.imageURL[0]);
 
     console.log(product.colors);
     // States for selected color and quantity
     const [selectedColor, setSelectedColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
+    const [selectedBaseColor, setSelectedBaseColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
+    const [selectedTopColor, setSelectedTopColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
 
     // Function to update selected product image
     const changeSelectedImage = (image) => {
-        console.log("Image clicked:", image); 
+        console.log("Image clicked:", image);
         setSelectedProductImage(image); // This will trigger a re-render
     }
 
     // Function to set selected color
     const determineWhatColor = (color) => {
         setSelectedColor(color);
+    };
+
+    const determineBaseColor = (color) => {
+        setSelectedBaseColor(color);
+    };
+
+    const determineTopColor = (color) => {
+        setSelectedTopColor(color);
     };
 
     return (
@@ -63,23 +73,60 @@ const ProductsPage = () => {
                         </div>
 
                         {/* Color Selection Section */}
-                        <div className="colorSection">
-                            <p>Color: {selectedColor}</p>
-                            <div className="color-container">
-                                {product.colors.map((color, index) => (
-                                    <span
-                                        key={index}
-                                        className="color-circle"
-                                        style={{ backgroundColor: color.toLowerCase() }}
-                                        onClick={() => determineWhatColor(color)}
-                                        title={color}
-                                    />
-                                ))}
+                        {!product.hasColorOptions && (
+                            <div className="colorSection">
+                                <p>Color: {selectedColor}</p>
+                                <div className="color-container">
+                                    {product.colors.map((color, index) => (
+                                        <span
+                                            key={index}
+                                            className="color-circle"
+                                            style={{ backgroundColor: color.toLowerCase() }}
+                                            onClick={() => determineWhatColor(color)}
+                                            title={color}
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+
+                        )}
+
+                        {product.hasColorOptions && (
+                            <>
+                                <div className="colorSection">
+                                    <p>Base Color: {selectedBaseColor}</p>
+                                    <div className="color-container">
+                                        {product.colors.map((color, index) => (
+                                            <span
+                                                key={index}
+                                                className="color-circle"
+                                                style={{ backgroundColor: color.toLowerCase() }}
+                                                onClick={() => determineBaseColor(color)}
+                                                title={color}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="colorSection">
+                                    <p>Top Color: {selectedTopColor}</p>
+                                    <div className="color-container">
+                                        {product.colors.map((color, index) => (
+                                            <span
+                                                key={index}
+                                                className="color-circle"
+                                                style={{ backgroundColor: color.toLowerCase() }}
+                                                onClick={() => determineTopColor(color)}
+                                                title={color}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </>
+                        )}
 
                         <div className="AddToCartButtonContainer">
-                            <button onClick={() => addItem(product, selectedColor, () => console.log("item added to cart"))}>ADD TO CART</button>
+                            <button onClick={() => addItem(product, selectedColor, selectedBaseColor, selectedTopColor, () => console.log("item added to cart"))}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ const AddProductForm = () => {
     const [productMedia, setMedia] = useState('Marvel');
     const [productColors, setProductColors] = useState([]);
     const [productDimensions, setDimensions] = useState('');
+    const [hasColorOptions, setColorOptions] = useState(false);
 
     const handleAddImage = () => {
         if (imageInput.trim()) {
@@ -31,7 +32,8 @@ const AddProductForm = () => {
             category: productCategory,
             media: productMedia,
             colors: productColors,
-            dimensions: productDimensions
+            dimensions: productDimensions,
+            hasColorOptions: hasColorOptions
         };
 
         try {
@@ -155,6 +157,15 @@ const AddProductForm = () => {
                             onChange={(e) => setDimensions(e.target.value)}
                             required
                         />
+                    </div>
+                    <div>
+                        <label>Color Options?</label>
+                        <input
+                            type="checkbox"
+                            checked={hasColorOptions}  // Set checked based on the current state
+                            onChange={() => setColorOptions(!hasColorOptions)}  // Toggle the state
+                        />
+                        {hasColorOptions ? "Yes" : "No"}
                     </div>
                     <button type="submit">Add Product</button>
                 </form>

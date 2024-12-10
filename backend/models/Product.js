@@ -43,7 +43,14 @@ const productSchema = new mongoose.Schema({
     dimensions:{
         type: String,
         required:true
+    },
+
+    hasColorOption:{
+        type: Boolean,
+        default: false
     }
+
+    
 
     
 

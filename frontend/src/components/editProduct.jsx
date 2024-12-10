@@ -15,7 +15,8 @@ function EditProduct() {
         colors: [],
         category: '',
         media: '',
-        dimensions: ''
+        dimensions: '',
+        hasColorOptions: false
     });
 
     const availableColors = [
@@ -176,6 +177,15 @@ function EditProduct() {
                                 </label>
                             ))}
                         </div>
+                    </label>
+
+                    <label>
+                        Has Color Options:
+                        <input
+                            type="checkbox"
+                            checked={product.hasColorOptions}
+                            onChange={() => setProduct((prevProduct) => ({ ...prevProduct, hasColorOptions: !prevProduct.hasColorOptions }))}
+                        />
                     </label>
 
                     <label>Media:</label>

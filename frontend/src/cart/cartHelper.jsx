@@ -1,6 +1,6 @@
 
 
-export const addItem = (item, color, next) => {
+export const addItem = (item, color, baseColor, topColor, next) => {
     let cart = [];
 
     if (typeof window !== 'undefined') {
@@ -9,29 +9,32 @@ export const addItem = (item, color, next) => {
             cart = JSON.parse(localStorage.getItem("cart"));
         }
 
-        // Check if the product with the selected color already exists in the cart
-        const existingItem = cart.find(cartItem => cartItem._id === item._id && cartItem.color === color);
+        // Check if the product with the selected color, base color, and top color already exists in the cart
+        const existingItem = cart.find(cartItem => 
+            cartItem._id === item._id && 
+            cartItem.color === color &&
+            cartItem.baseColor === baseColor &&
+            cartItem.topColor === topColor
+        );
 
         if (existingItem) {
-            // If item with the same product and color already exists, do not add it again
-            console.log("This product with the selected color is already in the cart.");
+            // If the item with the same product and selected colors already exists, do not add it again
+            console.log("This product with the selected colors is already in the cart.");
         } else {
-            // If the product with the selected color doesn't exist, add it to the cart
+            // If the product with the selected colors doesn't exist, add it to the cart
             cart.push({
                 ...item,
                 count: 1,
-                color: color,
+                color: color,           
+                baseColor: baseColor,  
+                topColor: topColor,     
             });
         }
 
-        // Remove duplicate items (based on product _id and color)
-        cart = Array.from(new Set(cart.map(p => `${p._id}-${p.color}`)))
-            .map(id => cart.find(p => `${p._id}-${p.color}` === id));
+        // Remove duplicate items (based on product _id, color, baseColor, and topColor)
+        cart = Array.from(new Set(cart.map(p => `${p._id}-${p.color}`-`${p.baseColor}-${p.topColor}`)))
+            .map(id => cart.find(p => `${p._id}-${p.color}`-`${p.baseColor}-${p.topColor}` === id));
 
-            // ["123-red", "123-red", "456-blue"]
-            //   cart = Array.from(new Set(cart.map(p => `${p._id}-${p.color}`))) => ["123-red", "456-blue"]
-            // .map(id => cart.find(p => `${p._id}-${p.color}` === id));
-                
         // Save the updated cart back to localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
         console.log(cart);
@@ -40,7 +43,8 @@ export const addItem = (item, color, next) => {
         window.location.reload();
         next();
     }
-};
+}; 
+
 export const itemTotal = () => {
     if (typeof window !== 'undefined') {
         if (localStorage.getItem("cart")) {
