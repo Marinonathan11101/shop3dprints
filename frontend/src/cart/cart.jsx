@@ -48,29 +48,28 @@ const Cart = () => {
 
   const updateUserInfo = async (item, user) => {
     try {
-    for (let i = 0; i < item.length; i++)
-    {
-       user.history.push(item[i]);
+      for (let i = 0; i < item.length; i++) {
+        user.history.push(item[i]);
+      }
+
+      const response = await fetch(`https://shop3dprints.onrender.com/api/users/${user.email}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+        },
+        body: JSON.stringify({ history: user.history }),
+      });
+
+      if (response.ok) {
+        console.log('User history updated successfully');
+      } else {
+        console.error('Failed to update user history');
+      }
+    } catch (error) {
+      console.error('Error updating user info:', error);
     }
 
-    const response = await fetch(`https://shop3dprints.onrender.com/api/users/${user.email}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-      },
-      body: JSON.stringify({ history: user.history }),
-    });
-
-    if (response.ok) {
-      console.log('User history updated successfully');
-    } else {
-      console.error('Failed to update user history');
-    }
-  } catch (error) {
-    console.error('Error updating user info:', error);
-  }
-  
   }
 
   const HandleCheckOut = async (items) => {
@@ -149,6 +148,13 @@ const Cart = () => {
               {items.map((item, index) => (
                 <li key={index}>
                   <img src={item.imageURL} alt="" /> {item.name} - Quantity: {item.count || 1} - Color: {item.color} - Price: ${item.price * item.count}
+
+                  {item.hasColorOption && (
+                    <>
+                      <p>Top Color: {item.topColor}</p>
+                      <p>Bottom Color: {item.bottomColor}</p>
+                    </>
+                  )}
                   <div className="quantity-section">
                     <p>Quantity:</p>
                     <span>Adjust quantity</span>

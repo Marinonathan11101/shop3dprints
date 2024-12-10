@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Footer from './footer';
 import Nav from '../routes/nav/nav.component';
@@ -16,7 +16,7 @@ function EditProduct() {
         category: '',
         media: '',
         dimensions: '',
-        hasColorOptions: false
+        hasColorOption: false
     });
 
     const availableColors = [
@@ -46,7 +46,7 @@ function EditProduct() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    setProduct({ ...data, colors: data.colors || [] });
+                    setProduct({ ...data, colors: data.colors || [], hasColorOption: data.hasColorOption || false });
                 } else {
                     console.error('Failed to fetch product');
                 }
@@ -178,15 +178,20 @@ function EditProduct() {
                             ))}
                         </div>
                     </label>
-
                     <label>
                         Has Color Options:
                         <input
                             type="checkbox"
-                            checked={product.hasColorOptions}
-                            onChange={() => setProduct((prevProduct) => ({ ...prevProduct, hasColorOptions: !prevProduct.hasColorOptions }))}
+                            checked={product.hasColorOption}
+                            onChange={(e) =>
+                                setProduct((prevProduct) => ({
+                                    ...prevProduct,
+                                    hasColorOption: e.target.checked,
+                                }))
+                            }
                         />
                     </label>
+
 
                     <label>Media:</label>
                     <select name="media" value={product.media} onChange={handleInputChange}>

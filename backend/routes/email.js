@@ -34,7 +34,7 @@ router.post('/send-email', (req, res) => {
   // Format the items list as a string for the email
   const itemsText = items.map(item => {
     const topColor = item.topColor;
-    const baseColor = item.baseColor;
+    const baseColor = item.bottomColor;
   
     // Check if both topColor and baseColor are not null
     let colorInfo = '';

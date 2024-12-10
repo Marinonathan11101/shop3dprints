@@ -73,7 +73,7 @@ const ProductsPage = () => {
                         </div>
 
                         {/* Color Selection Section */}
-                        {!product.hasColorOptions && (
+                        {!product.hasColorOption && (
                             <div className="colorSection">
                                 <p>Color: {selectedColor}</p>
                                 <div className="color-container">
@@ -91,7 +91,7 @@ const ProductsPage = () => {
 
                         )}
 
-                        {product.hasColorOptions && (
+                        {product.hasColorOption && (
                             <>
                                 <div className="colorSection">
                                     <p>Base Color: {selectedBaseColor}</p>
