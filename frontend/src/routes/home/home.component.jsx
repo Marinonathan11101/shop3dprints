@@ -10,6 +10,7 @@ import ProductsPage from "../../components/productsPage.jsx"
 import { AddLike } from '../../components/likesHelper.jsx';
 import OurColors from "../../images/ourColors.png"
 import Review from '../../components/review.jsx';
+import logo from "../../images/logo.png"
 
 
 function Home({ isAdmin }) {
@@ -177,8 +178,8 @@ function Home({ isAdmin }) {
 
                 <div className='InfoContainer'>
                     <div className='OurColors'>
-                        <h2>Our Colors</h2>
-                        <img src={OurColors} alt="" />
+                        <h2>About Us</h2>
+                        <img src={logo} alt="" />
                     </div>
 
                     <div className='Custom'>
@@ -188,7 +189,7 @@ function Home({ isAdmin }) {
 
                     <div className='FromCanada'>
                         <h2>From Canada!</h2>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/800px-Flag_of_Canada_%28Pantone%29.svg.png" alt="" />
+                        <img src="https://cdn.vectorstock.com/i/500p/38/04/canadian-flag-symbols-maple-leaf-decorative-icon-vector-39773804.jpg" alt="" />
                     </div>
 
                 </div>

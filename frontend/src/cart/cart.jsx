@@ -10,8 +10,8 @@ import { ClearCart } from "./cartHelper";
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false); // Add state for tracking process
+  const [tax, setTax] = useState(0);
   const navigate = useNavigate();
-
   const maxQuantity = 10; // Define the max quantity
 
   useEffect(() => {
@@ -19,8 +19,15 @@ const Cart = () => {
     setItems(cartItems);
   }, []);
 
+  useEffect(() => {
+    const total = items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
+    const calculatedTax = total * 0.13;
+    setTax(Math.round(calculatedTax * 100) / 100); // Round to two decimal places
+  }, [items]);
+
   const calculateTotal = () => {
-    return items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
+    let total = items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
+    return parseFloat(total) + tax;
   };
 
   const handleQuantityChange = (productId, color, change) => {
@@ -69,7 +76,6 @@ const Cart = () => {
     } catch (error) {
       console.error('Error updating user info:', error);
     }
-
   }
 
   const HandleCheckOut = async (items) => {
@@ -177,9 +183,14 @@ const Cart = () => {
           </div>
 
           <div className="Summary">
+      
             <h2>Summary</h2>
+
+            {items.map((item, index) => (
+                <li>Item Price: {item.price * item.count}</li>
+            ))}
+            <p>Estimated GST/HST: ${tax}</p>
             <p>TOTAL: ${calculateTotal()}</p>
-            <p>Estimated GST/HST:</p>
             {isAuthenticated() ? (
               <div className="buttonContainer">
                 <button onClick={() => HandleCheckOut(items)} disabled={isProcessing}>CHECKOUT</button>
@@ -200,4 +211,4 @@ const Cart = () => {
   );
 };
 
-export default Cart
+export default Cart;
