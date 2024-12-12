@@ -161,6 +161,9 @@ const Cart = () => {
                       <p>Bottom Color: {item.bottomColor}</p>
                     </>
                   )}
+                  {item.hasUserInput && (
+                    <p>CUSTOMIZED</p>
+                  )} 
                   <div className="quantity-section">
                     <p>Quantity:</p>
                     <span>Adjust quantity</span>

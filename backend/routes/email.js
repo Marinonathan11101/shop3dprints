@@ -49,8 +49,18 @@ router.post('/send-email', (req, res) => {
     else{
       colorInfo = item.color;
     }
+
+    const userInput = item.userInput;
+
+    let userInputInfo = "";
+    if (userInput !== null){
+     userInputInfo = `Custom Attribute: ${userInput}`;
+    }
+    else{
+      userInputInfo = "Custom Attribute: NONE";
+    }
   
-    return `${item.name} - Quantity: ${item.count || 1} - Price: $${item.price * (item.count || 1)} - Color: ${colorInfo} - Dimensions: ${item.dimensions}`;
+    return `${item.name} - Quantity: ${item.count || 1} - Price: $${item.price * (item.count || 1)} - Color: ${colorInfo} - Dimensions: ${item.dimensions} - ${userInputInfo}`;
   }).join('\n');
   const totalAmount = items.reduce((total, item) => total + item.price * (item.count || 1), 0).toFixed(2);
 

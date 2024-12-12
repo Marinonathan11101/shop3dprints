@@ -10,12 +10,11 @@ const ProductsPage = () => {
 
     // State to manage the selected product image
     const [selectedProductImage, setSelectedProductImage] = useState(product.imageURL[0]);
-
-    console.log(product.colors);
     // States for selected color and quantity
     const [selectedColor, setSelectedColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
     const [selectedBaseColor, setSelectedBaseColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
     const [selectedTopColor, setSelectedTopColor] = useState(product.colors.length > 0 ? product.colors[0] : "");
+    const [userInput, setUserInput] = useState("");
 
     // Function to update selected product image
     const changeSelectedImage = (image) => {
@@ -35,6 +34,12 @@ const ProductsPage = () => {
     const determineTopColor = (color) => {
         setSelectedTopColor(color);
     };
+
+    const handleUserInputChange = (e) => {
+        setUserInput(e);
+        console.log(userInput);
+
+    }
 
     return (
         <div>
@@ -125,8 +130,24 @@ const ProductsPage = () => {
                             </>
                         )}
 
+                        {product.hasUserInput && (
+                            <>
+                              <div className="userInputContainer">
+                                    <label htmlFor="userInput">Provide Custom Attribute.. Example: URL to a song, Name, etc</label>
+                                            <input onChange={(e) => handleUserInputChange(e.target.value)} type="text" name="userInputText "id="userInputText"  required/>
+
+
+                              </div>
+                            
+                            
+                            
+                            
+                            
+                            </>
+                        )}
+
                         <div className="AddToCartButtonContainer">
-                            <button onClick={() => addItem(product, selectedColor, selectedBaseColor, selectedTopColor, () => console.log("item added to cart"))}>ADD TO CART</button>
+                            <button onClick={() => addItem(product, selectedColor, selectedBaseColor, selectedTopColor, userInput, () => console.log("item added to cart"))}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>
