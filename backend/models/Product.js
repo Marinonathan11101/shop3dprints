@@ -48,6 +48,11 @@ const productSchema = new mongoose.Schema({
     hasColorOption:{
         type: Boolean,
         default: false
+    },
+
+    hasUserInput:{
+        type: Boolean,
+        default: false
     }
 
     

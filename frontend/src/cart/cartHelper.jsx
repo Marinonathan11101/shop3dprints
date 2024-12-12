@@ -1,6 +1,6 @@
 
 
-export const addItem = (item, color, topColor, bottomColor, next) => {
+export const addItem = (item, color,  bottomColor, topColor, next) => {
     let cart = [];
 
     if (typeof window !== 'undefined') {

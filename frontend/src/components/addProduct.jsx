@@ -13,7 +13,10 @@ const AddProductForm = () => {
     const [productMedia, setMedia] = useState('Marvel');
     const [productColors, setProductColors] = useState([]);
     const [productDimensions, setDimensions] = useState('');
-    const [hasColorOptions, setColorOptions] = useState(false);
+    const [productHasColorOptions, setColorOptions] = useState(false);
+    const [productHasUserInput, setUserInput] = useState(false);
+
+    console.log(productHasColorOptions);
 
     const handleAddImage = () => {
         if (imageInput.trim()) {
@@ -33,7 +36,9 @@ const AddProductForm = () => {
             media: productMedia,
             colors: productColors,
             dimensions: productDimensions,
-            hasColorOptions: hasColorOptions
+            hasColorOption: productHasColorOptions,
+            hasUserInput: productHasUserInput
+            
         };
 
         try {
@@ -162,10 +167,17 @@ const AddProductForm = () => {
                         <label>Color Options?</label>
                         <input
                             type="checkbox"
-                            checked={hasColorOptions}  // Set checked based on the current state
-                            onChange={() => setColorOptions(!hasColorOptions)}  // Toggle the state
+                            checked={productHasColorOptions}  // Set checked based on the current state
+                            onChange={() => setColorOptions(!productHasColorOptions)}  // Toggle the state
                         />
-                        {hasColorOptions ? "Yes" : "No"}
+                    </div>
+                    <div>
+                        <label>User Input?</label>
+                        <input
+                            type="checkbox"
+                            checked={productHasUserInput}  // Set checked based on the current state
+                            onChange={() => setUserInput(!productHasUserInput)}  // Toggle the state
+                        />
                     </div>
                     <button type="submit">Add Product</button>
                 </form>

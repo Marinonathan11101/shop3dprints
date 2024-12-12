@@ -11,12 +11,13 @@ function EditProduct() {
         name: '',
         price: '',
         description: '',
-        imageURL: [], // Changed from `imageUrl` to `imageURLs`
+        imageURL: [], 
         colors: [],
         category: '',
         media: '',
         dimensions: '',
-        hasColorOption: false
+        hasColorOption: false,
+        hasUserInput: false
     });
 
     const availableColors = [
@@ -46,7 +47,7 @@ function EditProduct() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    setProduct({ ...data, colors: data.colors || [], hasColorOption: data.hasColorOption || false });
+                    setProduct({ ...data, colors: data.colors || [], hasColorOption: data.hasColorOption || false, hasUserInput: data.hasUserInput || false});
                 } else {
                     console.error('Failed to fetch product');
                 }
@@ -187,6 +188,19 @@ function EditProduct() {
                                 setProduct((prevProduct) => ({
                                     ...prevProduct,
                                     hasColorOption: e.target.checked,
+                                }))
+                            }
+                        />
+                    </label>
+                    <label>
+                        Has User Input:
+                        <input
+                            type="checkbox"
+                            checked={product.hasUserInput}
+                            onChange={(e) =>
+                                setProduct((prevProduct) => ({
+                                    ...prevProduct,
+                                    hasUserInput: e.target.checked,
                                 }))
                             }
                         />
