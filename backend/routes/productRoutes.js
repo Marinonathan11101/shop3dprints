@@ -42,7 +42,7 @@ router.get('/names', async (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
-    const { name, description, imageURL, price, category, media, color, dimensions, hasColorOptions, hasUserInput } = req.body;
+    const { name, description, imageURL, price, category, media, colors, dimensions, hasColorOptions, hasUserInput } = req.body;
 
     console.log(req.body.imageURL);
 
@@ -54,7 +54,7 @@ router.post("/add", async (req, res) => {
             price,
             category,
             media,
-            color,
+            colors,
             dimensions,
             hasColorOptions,
             hasUserInput

@@ -133,7 +133,7 @@ const ProductsPage = () => {
                         {product.hasUserInput && (
                             <>
                               <div className="userInputContainer">
-                                    <label htmlFor="userInput">Provide Custom Attribute.. Example: URL to a song, Name, etc</label>
+                                    <label htmlFor="userInput">Provide Custom Attribute. Example: URL to a song, Name, etc</label>
                                             <input onChange={(e) => handleUserInputChange(e.target.value)} type="text" name="userInputText "id="userInputText"  required/>
 
 

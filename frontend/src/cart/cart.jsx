@@ -190,7 +190,7 @@ const Cart = () => {
             <h2>Summary</h2>
 
             {items.map((item, index) => (
-                <li>Item Price: {item.price * item.count}</li>
+                <li>Item Price: ${item.price * item.count}</li>
             ))}
             <p>Estimated GST/HST: ${tax}</p>
             <p>TOTAL: ${calculateTotal()}</p>

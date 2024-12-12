@@ -1225,8 +1225,6 @@ footer {
     /* Push the footer to the bottom */
   }
 
-
-
   .quantity-controls {
     display: flex;
     align-items: center;
@@ -1313,6 +1311,14 @@ footer {
     flex-direction: column;
   }
 
+  .ProductInfoContainer p:nth-of-type(2){
+    font-size: 1em;
+  }
+
+  .MainContent{
+    transform: scale(0.7);
+  }
+
 
 }
 
@@ -1375,4 +1381,19 @@ footer {
   display: flex;
   gap: 1em;
 }
+ 
+#userInputText{
+padding: 1em;
+}
+
+.footerContainer a p {
+  text-decoration: none;
+  color: white;
+}
+
+.Summary li{
+  text-decoration: none;
+}
+
+
 
