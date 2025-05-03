@@ -104,7 +104,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.delete("/:id/delete", async (req, res) => {
+router.delete("/:id/delete", async (req, res) => { // called in home component. Deletes the product passed from the id
     try {
         const product = await Product.findByIdAndDelete(req.params.id);
         if (!product) {
@@ -117,10 +117,10 @@ router.delete("/:id/delete", async (req, res) => {
 });
 
 // General route last
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { // called in home component to get all products.
     try {
         const products = await Product.find();
-        res.status(200).json(products);
+        res.status(200).json(products); // convert products to json and send it back.
     } catch (error) {
         console.error('Error fetching products:', error);
         res.status(500).json({ error: 'Failed to fetch products' });

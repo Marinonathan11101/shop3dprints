@@ -19,15 +19,6 @@ function Nav({ scrollToProducts }) {
     const [userName, setUserName] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // const productsSectionRef = useRef(null);
-
-
-    // const scrollToProducts = () => {
-    //     productsSectionRef.current.scrollIntoView({
-    //         behavior: 'smooth',
-    //         block: 'start'
-    //     });
-    // };
 
     const navigate = useNavigate();  // To redirect user after logging out
 
@@ -239,7 +230,7 @@ return (
                     </Link>
                 </div>
 
-                <div>
+                <div className='Products'>
                     {isAdmin &&
                         <Link to={"/adminproducts"}>
                             <p>Products</p>

@@ -11,6 +11,7 @@ import { AddLike } from '../../components/likesHelper.jsx';
 import OurColors from "../../images/ourColors.png"
 import Review from '../../components/review.jsx';
 import logo from "../../images/logo.png"
+import { Link } from 'react-router-dom';
 
 
 function Home({ isAdmin }) {
@@ -19,6 +20,8 @@ function Home({ isAdmin }) {
     const [products, setProducts] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [index, setIndex] = useState(0);
+    console.log(reviews);
     const location = useLocation();
     const productsSectionRef = useRef(null);
 
@@ -58,6 +61,7 @@ function Home({ isAdmin }) {
                 if (response.ok) {
                     const data = await response.json();
                     setReviews(data);
+                    console.log(reviews[index]);
                     console.log(data);
                 } else {
                     console.error('Failed to fetch Reviews');
@@ -69,7 +73,7 @@ function Home({ isAdmin }) {
             }
         };
 
-        fetchProducts();
+        fetchProducts(); // being called in the useeffect. Called only once when the component mounts
         fetchReviews();
 
     }, []);  // Empty dependency array ensures it runs only once
@@ -126,6 +130,14 @@ function Home({ isAdmin }) {
         }
     };
 
+    const increaseIndex = () => {
+        setIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    };
+
+    const decreaseIndex = () => {
+        setIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
+    };
+
     // Default to all products if no filtered products are available
     const productsToDisplay = filteredProducts.length > 0 ? filteredProducts : products;
 
@@ -177,14 +189,17 @@ function Home({ isAdmin }) {
             <section className='Info'>
 
                 <div className='InfoContainer'>
-                    <div className='OurColors'>
-                        <h2>About Us</h2>
-                        <img src={logo} alt="" />
-                    </div>
+                    <Link className="aboutLink" to={"/about"}>
+                        <div className='OurColors'>
+                            <h2>About Us</h2>
+                            <img src={logo} alt="" />
+                        </div>
+                    </Link>
+
 
                     <div className='Custom'>
                         <h2>We Sell Custom Prints</h2>
-                        <img src="https://st2.depositphotos.com/2274151/7117/v/450/depositphotos_71174187-stock-illustration-custom-made-grunge-retro-blue.jpg" alt="" />
+                        <img src="https://i.ibb.co/LDqzrnBx/Orange-and-Greenish-Circle-Adventure-Logo.png" alt="" />
                     </div>
 
                     <div className='FromCanada'>
@@ -204,7 +219,7 @@ function Home({ isAdmin }) {
                     {loading ? (
                         <p>Loading products...</p>
                     ) : filteredProductsByName.length > 0 ? (
-                        filteredProductsByName.map((product) => (
+                        filteredProductsByName.map((product) => ( // loops through all the products in the list.
                             <div
                                 key={product._id}
                                 className="productItem"
@@ -283,14 +298,17 @@ function Home({ isAdmin }) {
                 </div>
             </section>
 
-
             <section className="ReviewsSection">
                 <h2>REVIEWS</h2>
-
                 <div className="Reviews">
-                    {reviews.map((review) => (
-                        <Review key={review._id} review={review} />
-                    ))}
+                    <button onClick={() => decreaseIndex()}>PREVIOUS</button>
+
+
+                    {reviews.length > 0 && reviews[index] && (
+                        <Review key={reviews[index]._id} review={reviews[index]} />
+                    )}
+
+                    <button onClick={() => increaseIndex()}>NEXT</button>
                 </div>
             </section>
 

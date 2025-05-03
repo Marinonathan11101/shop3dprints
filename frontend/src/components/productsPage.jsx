@@ -61,6 +61,7 @@ const ProductsPage = () => {
 
                     <div className="ProductInfoContainer">
                         <h2>{product.name}</h2>
+                        <h3>Price</h3>
                         <p>${product.price} CAD</p>
                         <h3>Description</h3>
                         <p>{product.description}</p>
@@ -138,11 +139,6 @@ const ProductsPage = () => {
 
 
                               </div>
-                            
-                            
-                            
-                            
-                            
                             </>
                         )}
 

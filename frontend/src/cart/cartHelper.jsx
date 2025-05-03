@@ -1,6 +1,6 @@
 
 
-export const addItem = (item, color,  bottomColor, topColor, userInput, next) => {
+export const addItem = (item, color, bottomColor, topColor, userInput, next) => {
     let cart = [];
 
     if (typeof window !== 'undefined') {
@@ -32,9 +32,9 @@ export const addItem = (item, color,  bottomColor, topColor, userInput, next) =>
         }
 
         // Remove duplicate items based on _id, color, topColor, and bottomColor
-        cart = Array.from(new Set(cart.map(p => 
+        cart = Array.from(new Set(cart.map(p =>
             `${p._id}-${p.color}-${p.topColor}-${p.bottomColor}`)))
-            .map(id => cart.find(p => 
+            .map(id => cart.find(p =>
                 `${p._id}-${p.color}-${p.topColor}-${p.bottomColor}` === id));
 
         // Save the updated cart back to localStorage
@@ -69,23 +69,30 @@ export const getCart = () => {
 export const updateItem = (productId, value, color) => {
     let cart = getCart();
     cart = cart.map((item) =>
-      item._id === productId && item.color === color
-        ? { ...item, count: value }
-        : item
+        item._id === productId && item.color === color
+            ? { ...item, count: value }
+            : item
     );
     localStorage.setItem("cart", JSON.stringify(cart));
-  };
-
-export const DeleteCartItem = (productId, color) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    // Remove the item from the cart array
-    cart = cart.filter((item) => item._id !== productId || item.color !== color);
-    
-    // Save the updated cart back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.reload();
 };
 
+export const DeleteCartItem = (productId, color, topColor, bottomColor) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Remove the item based on productId, color, topColor, and bottomColor
+    cart = cart.filter((item) =>
+        item._id !== productId ||
+        item.color !== color ||
+        item.topColor !== topColor ||
+        item.bottomColor !== bottomColor
+    );
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Optionally reload the page to reflect the updated cart
+    window.location.reload();
+};
 export const ClearCart = () => {
     let cart = [];
 

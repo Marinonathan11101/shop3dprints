@@ -30,17 +30,18 @@ const Cart = () => {
     return parseFloat(total) + tax;
   };
 
-  const handleQuantityChange = (productId, color, change) => {
+  const handleQuantityChange = (productId, color, topColor, bottomColor, change) => {
     const updatedItems = items.map((item) => {
-      if (item._id === productId && item.color === color) {
+      // Check if the product matches by productId, color, topColor, and bottomColor
+      if (item._id === productId && item.color === color && item.topColor === topColor && item.bottomColor === bottomColor) {
         const newCount = Math.min(Math.max(item.count + change, 1), maxQuantity); // Ensure value is within 1 to maxQuantity
-        updateItem(productId, newCount, color); // Persist the change in storage
-        return { ...item, count: newCount };
+        updateItem(productId, newCount, color, topColor, bottomColor); // Persist the change in storage
+        return { ...item, count: newCount }; // Update the count for this specific product variant
       }
       return item;
     });
-    setItems(updatedItems);
-  };
+    setItems(updatedItems); // Update the state with the new quantity values
+};
 
   const handleChange = (productId, color) => (event) => {
     const value = Math.max(1, Math.min(maxQuantity, Number(event.target.value))); // Clamp value between 1 and maxQuantity
@@ -168,7 +169,7 @@ const Cart = () => {
                     <p>Quantity:</p>
                     <span>Adjust quantity</span>
                     <div className="quantity-controls">
-                      <button onClick={() => handleQuantityChange(item._id, item.color, -1)}>-</button>
+                      <button onClick={() => handleQuantityChange(item._id, item.color, item.topColor, item.bottomColor, -1)}>-</button>
                       <input
                         type="number"
                         value={item.count || 1}
@@ -176,10 +177,10 @@ const Cart = () => {
                         min="1"
                         max={maxQuantity}
                       />
-                      <button onClick={() => handleQuantityChange(item._id, item.color, 1)}>+</button>
+                      <button onClick={() => handleQuantityChange(item._id, item.color, item.topColor, item.bottomColor, 1)}>+</button>
                     </div>
                   </div>
-                  <button className="removeFromCartButton" onClick={() => DeleteCartItem(item._id, item.color)}>Remove</button>
+                  <button className="removeFromCartButton" onClick={() => DeleteCartItem(item._id, item.color, item.topColor, item.bottomColor)}>Remove</button>
                 </li>
               ))}
             </ul>

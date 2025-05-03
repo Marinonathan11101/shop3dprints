@@ -194,11 +194,6 @@ header {
   color: black;
 }
 
-.Reviews {
-  display: flex;
-  gap: 1em;
-}
-
 .Reviews img {
   width: 30px;
   height: 30px;
@@ -578,17 +573,20 @@ footer {
 }
 
 .ProductInfoContainer h2 {
-  padding: 2em;
+  padding: 1em;
+  font-size: 2em;
+  text-align: center;
 }
 
 .ProductInfoContainer {
-  text-align: center;
   font-size: 1.5em;
   padding: 1em;
+  width: 50%;
 }
 
 .ProductInfoContainer h3 {
   padding: 1em;
+  padding-left: 0;
 }
 
 /* Footer should stay at the bottom */
@@ -596,8 +594,8 @@ footer {
     margin-top: auto; /* Push footer to the bottom of the page */
 
 .MainContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+ display: flex;
+ align-items: flex-start;
 
 }
 
@@ -610,7 +608,6 @@ footer {
   gap: 10px;
   /* Space between circles */
   margin-top: 10px;
-  justify-content: center;
   padding: 1em;
 }
 
@@ -637,10 +634,15 @@ footer {
   margin-top: 1em;
   background-color: #61dafb;
   padding: 1em;
-  width: 65%;
+  width: 50%;
   height: 60px;
+  border-radius: 12px; /* ← More visibly rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
+}
+
+.AddToCartButtonContainer{
+  text-align: center;
 }
 
 .AddToCartButtonContainer button:hover {
@@ -757,6 +759,7 @@ footer {
 
 }
 
+
 .Summary {
   background-color: #73caea;
   text-align: center;
@@ -765,11 +768,13 @@ footer {
 }
 
 .itemsGrid {
-  overflow: scroll;
+  overflow-x: auto;   /* Enable horizontal scrolling */
   background-color: #73caea;
   padding: 2em;
   border: black 3px solid;
   width: 30%;
+  overflow-y: auto;
+  
 }
 
 .itemsGrid ul {
@@ -979,6 +984,26 @@ footer {
 
   .cart-Likes-SignIn {
     flex-wrap: wrap;
+    margin-top: 3em;
+  }
+   
+  .Sign-In{
+    position: relative;
+    bottom: 4em;
+  }
+
+  .Cart{
+    position: relative;
+    top: 2em;
+  }
+  .Likes{
+    position: relative;
+    top: 2em;
+  }
+
+  .Products{
+    position: relative;
+    right: 10em;
   }
 
   .Cart img {
@@ -1293,11 +1318,6 @@ footer {
     font-size: 1em;
   }
 
- .Reviews{
-  flex-direction: column;
-
- }
-
   .Categories {
     flex-direction: column;
     /* Stack items vertically */
@@ -1319,6 +1339,41 @@ footer {
     transform: scale(0.7);
   }
 
+  .Reviews {
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 0.6rem; /* Adjust text size */
+}
+
+
+.Reviews button{
+  
+}
+
+.reviewImage img{
+  width: 100px !important; 
+  height: 100px !important;
+}
+.Reviews button {
+  padding: 0.6em !important;      /* Smaller padding */
+  width: auto !important;        /* Auto width for better fit */
+  font-size: 0.5rem !important;  /* Smaller font */
+}
+
+.OurStoryContainer{
+  flex-direction: column;
+
+  
+}
+
+.OurStory{
+  width: 90%;   /* Adjust width */ /* Set height relative to viewport */
+  text-align: center;
+  height: 50%;
+}
+
+
+
 
 }
 
@@ -1327,6 +1382,7 @@ footer {
   .headerDiv {
     height: 15em; /* Increase the height as desired */
   }
+  
 }
 
 .ReviewsSection {
@@ -1344,11 +1400,9 @@ footer {
 
 .Reviews {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: center; 
   align-items: center;
   gap: 2em;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  scroll-behavior: smooth; /* Smooth scrolling effect */
 }
 
 .review-item {
@@ -1358,7 +1412,7 @@ footer {
   box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.3);
   max-width: 300px;
   max-height: 20em;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   min-height: 30em;
   min-width: 20em;
   width: auto;
@@ -1395,5 +1449,74 @@ padding: 1em;
   text-decoration: none;
 }
 
+.Reviews button{
+  padding: 1em;
+  background-color: black;
+  color: white;
+  border-radius: 5%;
+  width: 5%;
+}
+
+.otherImagesContainer{
+  overflow-x: scroll;
+}
+
+/* About Page */
+
+.aboutLink{
+  text-decoration: none;
+  color: black;
+}
+
+.aboutPageContent {
+  flex: 1; /* Pushes the footer down */
+}
+
+.OurStoryContainer{
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+  margin: auto; 
+  gap: 2em;
+  align-items: center;
+}
+
+.OurStory{
+  width:30%;
+  text-align: center;
+  padding: 2em;
+}
+
+.OurStory p {
+  margin-top: 1em;
+}
+
+.OurStoryImg img{
+  width: 300px;
+  height: 300px;
+}
+
+.aboutPageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 
+@media (max-width: 768px) {
+  .OurStoryContainer {
+    flex-direction: column; /* Stack items vertically */
+    padding: 1em;
+    gap: 1em;
+  }
+
+  .OurStory {
+    width: 90%;
+    padding: 1em;
+  }
+
+  .OurStoryImg img {
+    width: 200px; /* Smaller image size */
+    height: 200px;
+  }
+}
