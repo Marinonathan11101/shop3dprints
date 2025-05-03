@@ -216,7 +216,7 @@ header {
 .sideMenu {
   position: fixed;
   top: 0;
-  right: -200px;
+  left: -200px;
   width: 200px;
   height: 100%;
   background-color: #333;
@@ -240,12 +240,25 @@ header {
   padding: 8px 16px;
 }
 
+.sideMenuContent div ul li a{
+  text-decoration: none;
+}
+
+.sideMenu ul {
+  list-style: none;
+
+}
+
 .sideMenu a {
   color: white;
   padding: 8px 16px;
   text-decoration: none;
   display: block;
   transition: 0.3s;
+}
+
+.sideMenu.open {
+  left: 0;
 }
 
 .sideMenu a:hover {
@@ -351,6 +364,10 @@ header {
 }
 
 /* All products styling */
+
+.InfoContainer h2{
+  padding: 1em;
+}
 
 .AllProducts>h2 {
   text-align: center;
